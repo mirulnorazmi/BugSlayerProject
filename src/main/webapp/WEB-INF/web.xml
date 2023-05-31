@@ -19,4 +19,14 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>dashboardHandler</display-name>
+    <servlet-name>dashboardHandler</servlet-name>
+    <servlet-class>dashboardHandler</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>dashboardHandler</servlet-name>
+    <url-pattern>/dashboardHandler</url-pattern>
+  </servlet-mapping>
 </web-app>
