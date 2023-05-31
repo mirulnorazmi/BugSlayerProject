@@ -1,0 +1,90 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+}
+
+h1 {
+	color: blue !important;
+}
+
+#sidebar {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	border: 2px solid #f4f4f4;
+}
+
+.hr-line {
+	border-top: 2px solid #cccccc !important;
+}
+
+.nav-underline .nav-link.active, .nav-underline .show>.nav-link {
+	font-weight: 700 !important;
+	color: var(- -bs-red) !important;
+	border-right-color: currentcolor !important;
+}
+
+.nav-underline .nav-link {
+	padding-right: 0;
+	padding-left: 0;
+	border-right: 5px solid transparent;
+	border-bottom: 0 !important;
+	font-size: 600;
+}
+
+.dashboard-con {
+	padding: 20px 40px;
+}
+
+.banner-welcome {
+	background-image: url("../images/doctor-dashboard-bg.png");
+	width: 1040px;
+	min-height: 246px;
+	background-size: 449px 246px;
+	background-position-x: right;
+	background-position-y: bottom;
+	background-repeat: no-repeat;
+	border: 2px solid #f4f4f4;
+	border-radius: 20px;
+}
+
+.avatar-circle {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #e6e6e6;
+	width: 70px;
+	height: 70px;
+	border-radius: 50px;
+}
+
+.btn-primary {
+	background-color: #FF4E5B !important;
+	border-color: #FF4E5B !important;
+}
+
+.border-icon-status {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 2px solid rgba(0, 0, 0, 0.175);
+	border-radius: 10px;
+	min-width: 40%;
+	min-height: 100%;
+}
+
+.border-icon-status span {
+	font-size: 40px;
+}
+
+.btn-outline-primary {
+	border-color: #FF4E5B !important;
+	color: #FF4E5B !important;
+}
+
+.btn-outline-primary:hover {
+	background-color: #FF4E5B !important;
+	color: #ffffff !important;
+}
