@@ -88,3 +88,10 @@ h1 {
 	background-color: #FF4E5B !important;
 	color: #ffffff !important;
 }
+
+/* start create-appointment.jsp */
+.formCreateApp {
+	border: 2px solid #f4f4f4;
+	border-radius: 15px;
+	padding: 20px 20px !important;
+}

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Dashboard</title>
+<title>Insert title here</title>
 <link rel="stylesheet" href="css/main.css">
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -70,101 +70,31 @@
 		<!-- End sidebar  -->
 		<div
 			class="dashboard-con d-flex flex-column justify-content-left align-items-center offset-3 col-9">
-			<div>
-				<h4 style="text-align: left;">Dashboard</h4>
-				<div class="banner-welcome mb-3">
-					<img src="images/logo/logo-doctorange.png" alt="logo" width="350px" />
+			<form class="container-fluid formCreateApp">
+				<div class="mb-3">
+					<label for="exampleInputEmail1" class="form-label">Name</label> <input
+						type="name" class="form-control" id="exampleInputEmail1"
+						aria-describedby="emailHelp">
 				</div>
-			</div>
-
-			<div class="d-flex flex-row mt-2" style="width: 100%;">
-				<div class="col-8">
-					<h4 style="text-align: left;">Status</h4>
-					<div class="d-flex flex-wrap">
-						<div class="card col-10 mb-2" style="margin-right: 10px;">
-							<div
-								class="card-body d-flex flex-row justify-content-between align-items-center">
-								<div>
-									<h5 class="card-title">7</h5>
-									<p class="card-text">Appointments due</p>
-								</div>
-								<div class="border-icon-status">
-									<span class="material-symbols-outlined"> today </span>
-								</div>
-							</div>
-						</div>
-						<div class="card col-5 mb-2" style="margin-right: 10px;">
-							<div
-								class="card-body d-flex flex-row justify-content-between align-items-center">
-								<div>
-									<h5 class="card-title">12</h5>
-									<p class="card-text">All doctor</p>
-								</div>
-								<div class="border-icon-status">
-									<span class="material-symbols-outlined"> stethoscope </span>
-								</div>
-							</div>
-						</div>
-						<div class="card col-5 mb-2" style="margin-right: 10px;">
-							<div
-								class="card-body d-flex flex-row justify-content-between align-items-center">
-								<div>
-									<h5 class="card-title">30</h5>
-									<p class="card-text">Registered patients</p>
-								</div>
-								<div class="border-icon-status">
-									<span class="material-symbols-outlined"> ward </span>
-								</div>
-							</div>
-						</div>
-						<div class="card col-5 mb-2" style="margin-right: 10px;">
-							<div
-								class="card-body d-flex flex-row justify-content-between align-items-center">
-								<div>
-									<h5 class="card-title">7</h5>
-									<p class="card-text">Clinic</p>
-								</div>
-								<div class="border-icon-status">
-									<span class="material-symbols-outlined"> home_health </span>
-								</div>
-							</div>
-						</div>
-						<div class="card col-5 mb-2" style="margin-right: 10px;">
-							<div
-								class="card-body d-flex flex-row justify-content-between align-items-center">
-								<div>
-									<h5 class="card-title">10</h5>
-									<p class="card-text">Generated bills</p>
-								</div>
-								<div class="border-icon-status">
-									<span class="material-symbols-outlined"> receipt </span>
-								</div>
-							</div>
-						</div>
-
-					</div>
+				<div class="mb-3">
+					<label for="exampleInputEmail1" class="form-label">Email
+						address</label> <input type="email" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp">
 				</div>
-				<div class="col-4">
-					<h4 style="text-align: left;">Shortcut</h4>
-					<div
-						class="d-flex flex-column justify-content-left align-items-top"
-						style="width: 100%">
-						<button type="button" class="btn btn-outline-primary mb-3">
-							Create appointment</button>
-						<button type="button" class="btn btn-outline-primary mb-3">
-							Create patients</button>
-						<button type="button" class="btn btn-outline-primary mb-3">
-							Display doctors</button>
-						<button type="button" class="btn btn-outline-primary mb-3">
-							Display bills</button>
-						<button type="button" class="btn btn-outline-primary mb-3">
-							Display clinic</button>
-					</div>
+				<div class="mb-3">
+					<label for="exampleInputEmail1" class="form-label">Phone
+						number</label> <input type="name" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp">
 				</div>
-			</div>
+				<div class="mb-3 form-check">
+					<input type="checkbox" class="form-check-input" id="exampleCheck1">
+					<label class="form-check-label" for="exampleCheck1">Check
+						me out</label>
+				</div>
+				<button type="submit" class="btn btn-primary">Create</button>
+			</form>
 		</div>
 	</div>
-
 
 	<!-- Script section -->
 	<script
