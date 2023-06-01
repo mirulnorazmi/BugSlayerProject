@@ -1,5 +1,12 @@
 @charset "UTF-8";
 
+body{
+	width : 100%;
+	height : 100%;
+	background-image : url ("../images/logo-doctorange.png");
+	font-family: Arial, sans-serif;
+}
+
 * {
 	margin: 0;
 }
@@ -87,4 +94,49 @@ h1 {
 .btn-outline-primary:hover {
 	background-color: #FF4E5B !important;
 	color: #ffffff !important;
+}
+
+/* update page */
+.formCreateApp{
+	border :2px solid #f4f4f4;
+	border-radius: 15px;
+	padding : 20px 20px !important;
+}
+
+.btns {
+	border-color: #FF4E5B !important;
+	color: #FF4E5B !important;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+th, td {
+	padding: 8px;
+	text-align: left;
+	border-bottom: 1px solid #ddd;
+}
+
+th {
+	background-color: #FF4E5B;
+}
+
+.container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+.banner-welcome-update {
+	background-image: url("../images/doctor-dashboard-bg.png");
+	width: 1040px;
+	min-height: 500px;
+	background-size: 50px 520px;
+	background-position-x: right;
+	background-position-y: left;
+	background-repeat: no-repeat;
+	border: 2px solid #f4f4f4;
+	border-radius: 20px;
 }
