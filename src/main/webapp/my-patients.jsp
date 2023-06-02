@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>My appointments</title>
+<title>My Patients</title>
 <link rel="stylesheet" href="css/main.css">
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -20,6 +20,7 @@
 </head>
 <body style="width: 100%; overflow-y: hidden;">
 	<div class="d-flex flex-row" style="height: 100%;">
+
 		<!-- Start sidebar  -->
 		<div id="sidebar"
 			class="d-flex flex-column flex-shrink-0 text-black bg-white col-3 position-fixed"
@@ -74,25 +75,25 @@
 		<div
 			class="dashboard-con d-flex flex-column justify-content-left align-items-center offset-3 col-9">
 			<div style="width: 100%;">
-				<h4 style="text-align: left;">My appointments</h4>
+				<h4 style="text-align: left;">My Patients</h4>
+				<div class="input-group mb-3 mt-4" style="height: 40px;">
+					<input type="text" class="form-control"
+						placeholder="Enter Patient Name" aria-label="Patient Name"
+						aria-describedby="button-addon2">
+					<button class="btn btn-outline-danger me-2" type="button">Search</button>
+				</div>
 				<div class="alert alert-info" role="alert">Click on the row to
-					update and delete the appointment</div>
+					update and delete the patient details</div>
 				<div class="d-flex flex-row m-2">
 					<div class="form-check form-switch">
 						<input class="form-check-input" type="checkbox" role="switch"
 							id="flexSwitchCheckDefault" checked> <label
-							class="form-check-label" for="flexSwitchCheckDefault">Today
-							appointments</label>
+							class="form-check-label" for="flexSwitchCheckDefault">sort a-z</label>
 					</div>
 					<div class="form-check form-switch" style="margin-left: 10px;">
 						<input class="form-check-input" type="checkbox" role="switch"
 							id="flexSwitchCheckDefault"> <label
-							class="form-check-label" for="flexSwitchCheckDefault">by Date</label>
-					</div>
-					<div class="form-check form-switch" style="margin-left: 10px;">
-						<input class="form-check-input" type="checkbox" role="switch"
-							id="flexSwitchCheckDefault"> <label
-							class="form-check-label" for="flexSwitchCheckDefault">by Time</label>
+							class="form-check-label" for="flexSwitchCheckDefault">all patients</label>
 					</div>
 				</div>
 			</div>
@@ -102,27 +103,24 @@
 						<tr>
 							<th scope="col"></th>
 							<th scope="col">Name</th>
-							<th scope="col">Date</th>
-							<th scope="col">Time</th>
-							<th scope="col">Duration</th>
-							<th scope="col">Description</th>
-							<th scope="col">Status</th>
-							<th scope="col">Bill</th>
+							<th scope="col">Email</th>
+							<th scope="col">Phone</th>
+							<th scope="col">Address</th>
 							<!-- 				<th></th> -->
 							<!-- <th></th> -->
 						</tr>
 					</thead>
 					<tbody>
 						<%
-						String[][] patients = {{"Kamsiah haidar", "24-jun-2023", "10:00", "1 hour", "no", "no", "no"},
-								{"Jacob zuckerberg", "02-apr-2023", "13:10", "30 minutes", "yes", "yes", "yes"},
-								{"Khabib max", "10-dec-2023", "14:30", "1 hour", "no", "no", "no"},
-								{"Kamsiah haidar", "24-jun-2023", "10:00", "1 hour", "no", "no", "no"},
-								{"Jacob zuckerberg", "02-apr-2023", "13:10", "30 minutes", "yes", "yes", "yes"},
-								{"Khabib max", "10-dec-2023", "14:30", "1 hour", "no", "no", "no"},
-								{"Kamsiah haidar", "24-jun-2023", "10:00", "1 hour", "no", "no", "no"},
-								{"Jacob zuckerberg", "02-apr-2023", "13:10", "30 minutes", "yes", "yes", "yes"},
-								{"Khabib max", "10-dec-2023", "14:30", "1 hour", "no", "no", "no"}};
+						String[][] patients = {{"Anwar Dollah", "anwardollah@gmail.com", "019-9823721", "A-0-12 Perumahan Awam, Bukit Jalil, 57000, Kuala Lumpur"},
+								{"Aqilah Wahid", "qilalala@gmail.com", "014-4322211", "B-12-01 Perumahan Awam, Bukit Jalil, 57000, Kuala Lumpur"},
+								{"Ghaffar Ali", "ghafferally@gmail.com", "012-1223322", "P2 Jalan Makmur, Ampang, 53100, Kuala Lumpur"},
+								{"Jason Laravel", "jasonlaravel@gmail.com", "017-9853556", "K9 Jalan 3, Ampang, 53300, Kuala Lumpur"},
+								{"Kamariah Jumaat", "cammyjumaat@gmail.com", "011-13221122", "No.3 Jalan Damai 2/9c, Cheras, 43200, Selangor"},
+								{"Kelvin Kumar", "kelvinkumar@ymail.com", "016-888765", "No. 9 Jalan Suasa 2/6b, Bangi, 43000, Selangor"},
+								{"Khalid Mydin", "KhalidMy@hotmail.com", "013-3321227", "L-0-9 Bandar Putra, Bangi, 43000, Selangor"},
+								{"Lee Ah Teh", "ahtehlee@gmail.com", "018-9081128", "No. 10 Jalan Suasa 2/5a, Cheras, 43200, Selangor"},
+								{"Munir Ahmad", "muniramat@yahoo.com", "012-2233355", "Blok F-1-10 Pangsapuri Permai, Sungai Besi, 57000, Kuala Lumpur"}};
 
 						for (int i = 0; i < patients.length; i++) {
 							int j = 0;
@@ -133,9 +131,7 @@
 							<td><%=patients[i][j + 1]%></td>
 							<td><%=patients[i][j + 2]%></td>
 							<td><%=patients[i][j + 3]%></td>
-							<td><%=patients[i][j + 4]%></td>
-							<td><%=patients[i][j + 5]%></td>
-							<td><%=patients[i][j + 6]%></td>
+							
 							<!-- <td><button type="button" class="btn">
 									<i class="bi bi-pencil-square"></i>
 								</button></td> -->
