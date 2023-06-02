@@ -122,3 +122,8 @@ button.btn {
 	background-color: #ffffff;
 	top: 0;
 }
+
+.form-check-input:checked {
+    background-color: #FF4E5B !important;
+    border-color: #FF4E5B !important;
+}
