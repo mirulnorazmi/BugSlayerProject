@@ -70,9 +70,9 @@
 		<!-- End sidebar  -->
 		<div
 			class="dashboard-con d-flex flex-column justify-content-left align-items-center offset-3 col-9">
-			<div>
+			<div style="width: 100%;">
 				<h4 style="text-align: left;">Dashboard</h4>
-				<div class="banner-welcome mb-3">
+				<div class="banner-welcome mb-3 col-12">
 					<img src="images/logo/logo-doctorange.png" alt="logo" width="350px" />
 				</div>
 			</div>
