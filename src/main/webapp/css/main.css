@@ -1,5 +1,31 @@
 @charset "UTF-8";
+#sidebar {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	border: 2px solid #f4f4f4;
+}
+.dashboard-con {
+	padding: 20px 20px;
+}
+.banner-welcome {	
+	width: 1040px;
+	min-height: 246px;
+	background-size: 449px 246px;
+	background-position-x: right;
+	background-position-y: bottom;
+	background-repeat: no-repeat;
+	border: 2px solid #f4f4f4;
+	border-radius: 20px
+}
+.btn-primary {
+	background-color: #FF4E5B !important;
+	border-color: #FF4E5B !important;
+}
 
-*{
-	margin: 0;
+.form-container{
+	border: 2px solid #f4f4f4;
+	border-radius: 15px;
+	padding: 50px;
 }
