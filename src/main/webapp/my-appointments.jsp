@@ -80,7 +80,7 @@
 				<div class="d-flex flex-row m-2">
 					<div class="form-check form-switch">
 						<input class="form-check-input" type="checkbox" role="switch"
-							id="flexSwitchCheckDefault"> <label
+							id="flexSwitchCheckDefault" checked> <label
 							class="form-check-label" for="flexSwitchCheckDefault">Today
 							appointments</label>
 					</div>
