@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+.mb-3 {
+    margin-bottom: 3rem!important;
+}
+
+.btn-outline-primary {
+    --bs-btn-color: #FF4E5B;
+    --bs-btn-border-color: #FF4E5B;}
+
+.button{
+	background-color: #FF4E5B !important;
+	border-color: #FF4E5B !important;
+}

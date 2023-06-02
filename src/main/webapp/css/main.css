@@ -23,20 +23,12 @@
 	background-color: #FF4E5B !important;
 	border-color: #FF4E5B !important;
 }
-
-<<<<<<< HEAD
 .form-container{
 	border: 2px solid #f4f4f4;
 	border-radius: 15px;
-	padding: 50px;
-=======
-* {
-	margin: 0;
-}
-
-h1 {
-	color: blue !important;
-}
+	padding: 50px;}
+.h1{
+	color: blue !important;}
 
 #sidebar {
 	position: fixed;
@@ -155,6 +147,4 @@ button.btn {
 
 .form-check-input:checked {
     background-color: #FF4E5B !important;
-    border-color: #FF4E5B !important;
->>>>>>> 880ab8a464bc549223997bf13a1fbbd0d46c2568
-}
+    border-color: #FF4E5B !important;}
