@@ -46,7 +46,7 @@ h1 {
 
 .banner-welcome {
 	background-image: url("../images/doctor-dashboard-bg.png");
-	width: 1040px;
+	/* width: 1040px; */
 	min-height: 246px;
 	background-size: 449px 246px;
 	background-position-x: right;
@@ -93,4 +93,43 @@ h1 {
 .btn-outline-primary:hover {
 	background-color: #FF4E5B !important;
 	color: #ffffff !important;
+}
+
+/* start create-appointment.jsp */
+.formCreateApp {
+	border: 2px solid #f4f4f4;
+	border-radius: 15px;
+	padding: 20px 20px !important;
+}
+
+/*Start my-appointment.jsp*/
+#infinite-table {
+	padding: 20px 0;
+	border: 2px solid #f4f4f4;
+	border-radius: 20px;
+	overflow: auto;
+	height: 100%;
+}
+
+table td {
+	min-height: 50px;
+}
+
+table td:hover {
+	cursor: pointer;
+}
+
+button.btn {
+	min-width: 43px;
+}
+
+.header {
+	position: sticky;
+	background-color: #ffffff;
+	top: 0;
+}
+
+.form-check-input:checked {
+    background-color: #FF4E5B !important;
+    border-color: #FF4E5B !important;
 }
