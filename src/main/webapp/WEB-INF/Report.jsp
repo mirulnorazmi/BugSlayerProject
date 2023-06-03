@@ -1,9 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Report Analysis</title>
-<link rel="stylesheet" href="css/Report.css">
+<title>Insert title here</title>
+</head>
+<body>
+   <link rel="stylesheet" href="css/Report.css">
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -12,16 +16,18 @@
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
-<body style="height: 100vh;">
 
+<div class="dashboard-con d-flex flex-column justify-content-left align-items-center offset-3 col-9">
+			<header>
+				<h4 style="text-align: left;">Report Analysis</h4>
+				<div class="banner-welcome mb-3">
+					<img src="images/logo-doctorange.png" alt="logo" width="200px" />
+				</div>
+			</header>
+
+			</div>
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Report Analysis</h1>
-                        <button type="button" class="btn btn-outline-primary mb-3">
-							Generate Report</button>
-                    </div>
                     <!-- Content Row -->
                     <div class="row">
                         <!-- Earnings (Monthly) Card Example -->
@@ -135,6 +141,7 @@
                 </div>
             </footer>
             <!-- End of Footer -->
+        </div>
         </div>
         <!-- End of Content Wrapper --> 
 <!-- Script section -->
