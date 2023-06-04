@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+	<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -88,12 +88,12 @@
 					<div class="form-check form-switch">
 						<input class="form-check-input" type="checkbox" role="switch"
 							id="flexSwitchCheckDefault" checked> <label
-							class="form-check-label" for="flexSwitchCheckDefault">sort a-z</label>
+							class="form-check-label" for="flexSwitchCheckDefault">All patients</label>
 					</div>
 					<div class="form-check form-switch" style="margin-left: 10px;">
 						<input class="form-check-input" type="checkbox" role="switch"
 							id="flexSwitchCheckDefault"> <label
-							class="form-check-label" for="flexSwitchCheckDefault">all patients</label>
+							class="form-check-label" for="flexSwitchCheckDefault">Sort a-z</label>
 					</div>
 				</div>
 			</div>
