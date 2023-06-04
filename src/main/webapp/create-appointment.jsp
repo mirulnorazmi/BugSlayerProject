@@ -34,11 +34,11 @@
 					<span style="color: #bfbfbf;">mirul@doc.email.com</span>
 				</div>
 			</div>
-			<div
+			<a href="/BugSlayerProject/"
 				class="d-flex justify-content-center align-items-center mt-3 mb-3"
-				style="width: 100%;">
+				style="width: 100%; text-decoration: none;">
 				<button class="btn btn-primary col-8" type="button">Log out</button>
-			</div>
+			</a>
 			<hr class="hr-line">
 			<ul class="nav nav-underline flex-column mb-auto"
 				style="padding-left: 40px;">

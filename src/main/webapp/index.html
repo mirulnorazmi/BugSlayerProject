@@ -11,26 +11,21 @@
 	crossorigin="anonymous">
 </head>
 <body>
-	<div class="d-flex flex-row justify-content-between"
-		style="width: 100%">
-		<a class="navbar-brand pt-1 pl-1" href="#"> <img
-			src="images/logo/logo-doctorange.png" alt="Logo" width="200"
-			class="d-inline-block align-text-top">
-		</a>
-	</div>
-
 	<div
 		class="d-flex flex-column justify-content-center align-items-center p-5">
 		<img src="images/doctor-dashboard-bg.png" alt="image" class="col-3" />
-		<form class="form-container col-3">
-			<div class="mb-2 mt-4"> 
+		<img src="images/logo/logo-doctorange.png" alt="Logo" width="200"
+			class="d-inline-block align-text-top"/> 
+		<form class="form-container col-3"
+			action="/BugSlayerProject/dashboard.jsp">
+			<div class="mb-2 mt-4">
 				<input type="email" class="form-control" id="exampleInputEmail1"
 					aria-describedby="emailHelp" placeholder="Email Address" />
 			</div class="mb-3">
 			<div>
 				<input type="password" class="form-control"
-					id="exampleInputPassword1" placeholder="Password/">
-			</div> 
+					id="exampleInputPassword1" placeholder="Password"> 
+			</div>
 			<div class="mb-3 form-check">
 				<input type="checkbox" class="form-check-input" id="exampleCheck1">
 				<label class="form-check-label" for="exampleCheck1">Remember
@@ -39,10 +34,10 @@
 			<div class="d-grid gap-2 col-6 mx-auto">
 				<button type="submit" class="btn btn-primary justify-content-center">Sign
 					In</button>
-				<br>
 			</div>
+			<br>
 			<p class="register-login" style="text-align: center;">
-				Don't have an account? <a href="#!" class="register"
+				Don't have an account? <a href="/BugSlayerProject/registration.html" class="register"
 					style="color: grey">Register</a>
 			</p>
 		</form>

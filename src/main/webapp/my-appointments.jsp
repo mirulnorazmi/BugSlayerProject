@@ -49,12 +49,14 @@
 					class="nav-link text-black d-flex justify-content-start"
 					aria-current="page"><span class="material-symbols-outlined"
 						style="margin-right: 20px;"> dashboard </span> Dashboard </a></li>
-				<li class="nav-item"><a href="/BugSlayerProject/my-appointments.jsp"
+				<li class="nav-item"><a
+					href="/BugSlayerProject/my-appointments.jsp"
 					class="nav-link active text-black d-flex justify-content-start">
 						<span class="material-symbols-outlined"
 						style="margin-right: 20px;"> event </span>My Appointments
 				</a></li>
-				<li class="nav-item"><a href="/BugSlayerProject/my-patients.jsp"
+				<li class="nav-item"><a
+					href="/BugSlayerProject/my-patients.jsp"
 					class="nav-link text-black d-flex justify-content-start"><span
 						class="material-symbols-outlined" style="margin-right: 20px;">
 							patient_list </span> My Patients</a></li>
@@ -77,23 +79,32 @@
 				<h4 style="text-align: left;">My appointments</h4>
 				<div class="alert alert-info" role="alert">Click on the row to
 					update and delete the appointment</div>
-				<div class="d-flex flex-row m-2">
-					<div class="form-check form-switch">
-						<input class="form-check-input" type="checkbox" role="switch"
-							id="flexSwitchCheckDefault" checked> <label
-							class="form-check-label" for="flexSwitchCheckDefault">Today
-							appointments</label>
-					</div>
-					<div class="form-check form-switch" style="margin-left: 10px;">
-						<input class="form-check-input" type="checkbox" role="switch"
-							id="flexSwitchCheckDefault"> <label
-							class="form-check-label" for="flexSwitchCheckDefault">by Date</label>
-					</div>
-					<div class="form-check form-switch" style="margin-left: 10px;">
-						<input class="form-check-input" type="checkbox" role="switch"
-							id="flexSwitchCheckDefault"> <label
-							class="form-check-label" for="flexSwitchCheckDefault">by Time</label>
-					</div>
+				<div class="d-flex flex-row justify-content-between m-2">
+					<section class="d-flex flex-row align-items-center col-8">
+						<div class="form-check form-switch">
+							<input class="form-check-input" type="checkbox" role="switch"
+								id="flexSwitchCheckDefault" checked> <label
+								class="form-check-label" for="flexSwitchCheckDefault">Today
+								appointments</label>
+						</div>
+						<div class="form-check form-switch" style="margin-left: 10px;">
+							<input class="form-check-input" type="checkbox" role="switch"
+								id="flexSwitchCheckDefault"> <label
+								class="form-check-label" for="flexSwitchCheckDefault">by
+								Date</label>
+						</div>
+						<div class="form-check form-switch" style="margin-left: 10px;">
+							<input class="form-check-input" type="checkbox" role="switch"
+								id="flexSwitchCheckDefault"> <label
+								class="form-check-label" for="flexSwitchCheckDefault">by
+								Time</label>
+						</div>
+					</section>
+					<a href="#" style="text-decoration: none;">
+						<button type="button" class="btn btn-outline-primary">
+							<i class="bi bi-plus-circle"></i> Create appointment
+						</button>
+					</a>
 				</div>
 			</div>
 			<div class="table-responsive container-fluid" id="infinite-table">
@@ -127,7 +138,8 @@
 						for (int i = 0; i < patients.length; i++) {
 							int j = 0;
 						%>
-						<tr key="<%=i + 1%>" onclick="myFunction(<%=i + 1%>)">
+						<tr key="<%=i + 1%>" onclick="myFunction(<%=i + 1%>, 'settings.jsp')">
+
 							<th scope="row" style="color: #FF4E5B !important;"><%=i + 1%></th>
 							<td><%=patients[i][j]%></td>
 							<td><%=patients[i][j + 1]%></td>
@@ -142,6 +154,7 @@
 							<!-- <td><button type="button" class="btn" style="z-index: 20;">
 									<i class="bi bi-trash3-fill"></i>
 								</button></td> -->
+
 						</tr>
 						<%
 						}
@@ -156,8 +169,11 @@
 	<!-- Script section -->
 	<!-- <script src="js/script.js"></script> -->
 	<script>
-		function myFunction(x) {
-			alert("Row index is: " + x);
+		function myFunction(x,y) {
+			console.log("Row index is: " + x); 
+			window.location.href= y;
+			sessionStorage.setItem("key", x);
+			console.log("Session key : " + sessionStorage.getItem("key"));
 		}
 	</script>
 	<script
