@@ -38,28 +38,28 @@
 					<span style="color: #bfbfbf;">mirul@doc.email.com</span>
 				</div>
 			</div>
-			<div
+			<a href="/BugSlayerProject/"
 				class="d-flex justify-content-center align-items-center mt-3 mb-3"
-				style="width: 100%;">
+				style="width: 100%; text-decoration: none;">
 				<button class="btn btn-primary col-8" type="button">Log out</button>
-			</div>
+			</a>
 			<hr class="hr-line">
 			<ul class="nav nav-underline flex-column mb-auto"
 				style="padding-left: 40px;">
-				<li><a href="/loginServlet"
+				<li class="nav-item"><a href="/BugSlayerProject/dashboard.jsp"
 					class="nav-link text-black d-flex justify-content-start"
 					aria-current="page"><span class="material-symbols-outlined"
 						style="margin-right: 20px;"> dashboard </span> Dashboard </a></li>
-				<li class="nav-item"><a href="#"
+				<li class="nav-item"><a href="/BugSlayerProject/my-appointments.jsp"
 					class="nav-link text-black d-flex justify-content-start">
 						<span class="material-symbols-outlined"
 						style="margin-right: 20px;"> event </span>My Appointments
 				</a></li>
-				<li class="nav-item"><a href="#"
+				<li class="nav-item"><a href="/BugSlayerProject/my-patients.jsp"
 					class="nav-link active text-black d-flex justify-content-start"><span
 						class="material-symbols-outlined" style="margin-right: 20px;">
 							patient_list </span> My Patients</a></li>
-				<li class="nav-item"><a href="#"
+				<li class="nav-item"><a href="/BugSlayerProject/settings.jsp"
 					class="nav-link text-black d-flex justify-content-start"> <span
 						class="material-symbols-outlined" style="margin-right: 20px;">
 							settings </span>Settings

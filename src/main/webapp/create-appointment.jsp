@@ -42,20 +42,20 @@
 			<hr class="hr-line">
 			<ul class="nav nav-underline flex-column mb-auto"
 				style="padding-left: 40px;">
-				<li class="nav-item"><a href="/loginServlet"
+				<li class="nav-item"><a href="/BugSlayerProject/dashboard.jsp"
 					class="nav-link active d-flex justify-content-start"
 					aria-current="page"><span class="material-symbols-outlined"
 						style="margin-right: 20px;"> dashboard </span> Dashboard </a></li>
-				<li><a href="#"
+				<li class="nav-item"><a href="/BugSlayerProject/my-appointments.jsp"
 					class="nav-link text-black d-flex justify-content-start"> <span
 						class="material-symbols-outlined" style="margin-right: 20px;">
 							event </span>My Appointments
 				</a></li>
-				<li class="nav-item"><a href="#"
+				<li class="nav-item"><a href="/BugSlayerProject/my-patients.jsp"
 					class="nav-link text-black d-flex justify-content-start"><span
 						class="material-symbols-outlined" style="margin-right: 20px;">
 							patient_list </span> My Patients</a></li>
-				<li class="nav-item"><a href="#"
+				<li class="nav-item"><a href="/BugSlayerProject/settings.jsp"
 					class="nav-link text-black d-flex justify-content-start"> <span
 						class="material-symbols-outlined" style="margin-right: 20px;">
 							settings </span>Settings
