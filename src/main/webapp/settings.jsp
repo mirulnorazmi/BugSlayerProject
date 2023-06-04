@@ -7,6 +7,10 @@
 <title>Profile</title>
 <link rel="stylesheet" href="css/main.css">
 <link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	rel="stylesheet" />
+
+<link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
@@ -56,9 +60,9 @@
 						class="material-symbols-outlined" style="margin-right: 20px;">
 							patient_list </span> My Patients</a></li>
 				<li class="nav-item"><a href="#"
-					class="nav-link active text-black d-flex justify-content-start"> <span
-						class="material-symbols-outlined" style="margin-right: 20px;">
-							settings </span>Settings
+					class="nav-link active text-black d-flex justify-content-start">
+						<span class="material-symbols-outlined"
+						style="margin-right: 20px;"> settings </span>Settings
 				</a></li>
 			</ul>
 			<hr style="margin-bottom: 0px !important;">
@@ -70,72 +74,69 @@
 		<!-- End sidebar  -->
 		<div
 			class="dashboard-con d-flex flex-column justify-content-left align-items-center offset-3 col-9">
-			<div>
+			<div style="width: 100%;">
 				<h4 style="text-align: left;">Profile</h4>
-			</div>
-			<form class="row g-3 d-flex flex-row justify-content-center">
-				<div class="col-md-5">
-					<label for="firstname" class="form-label">First Name</label> <input
-						type="text" class="form-control" id="inputFirstName" value="Doc."
-						readonly>
+				<div class="jumbotron jumbotron-fluid d-flex align-items-center">
+
+					<div class="form-floating">
+						<p class="h3" style="padding: 0 0 0 100px; color: #FF4E5B;">Trust
+							Care Center</p>
+						<p style="font-size: 12px; color: grey; padding: 0 100px;">Thank
+							you for your brilliant treatment.</p>
+					</div>
+
+
 				</div>
 				<br>
-				<div class="col-md-5">
-					<label for="lastname" class="form-label">Last Name</label> <input
-						type="text" class="form-control" id="inputLastName" value="Mirul">
-				</div>
-				<div class="col-md-5">
-					<label for="inputEmail4" class="form-label">Email</label> <input
-						type="email" class="form-control" id="inputEmail4"
-						value="mirul@doc.email.com" disabled="">
-				</div>
-				<div class="col-md-5">
-					<label for="phonenumber" class="form-label">Phone Number</label> <input
-						type="text" class="form-control" id="inputPhoneNumber"
-						value="010-90909090">
-				</div>
-				<div class="col-md-5">
-					<label for="inputNewPassword4" class="form-label">New
-						Password</label> <input type="newpassword" class="form-control"
-						id="inputNewPassword4">
-				</div>
-				<div class="col-md-5">
-					<label for="inputPassword4" class="form-label">Confirm
-						Password</label> <input type="password" class="form-control"
-						id="inputPassword4">
-				</div>
-				<div class="col-md-5">
-					<label for="" class="form-label">Address 1</label> <input
-						type="text" class="form-control" id="inputAddress"
-						value="48,Jalan Jasa Merdeka 48">
-				</div>
-				<div class="col-5">
-					<label for="" class="form-label">Address 2</label> <input
-						type="text" class="form-control" id="inputAddress" value="">
-				</div>
-				<div class="col-md-5">
-					<label for="inputState" class="form-label">State</label> <select
-						id="inputState" class="form-select">
-						<option selected>Melaka Tengah</option>
-						<option>Alor Gajah</option>
-						<option>Jasin</option>
-					</select>
-				</div>
-				<div class="col-md-5">
-					<label for="inputZip" class="form-label">Zip</label> <input
-						type="text" class="form-control" id="inputZip" value="98909">
-				</div>
+				<div class="container">
+					<div class="form-floating">
+						<div class="py-2">
+							<div class="row py-2">
+								<div class="col-md-6">
+									<label for="fullname">Full Name</label> <input type="text"
+										class="bg-light form-control" value="Amirul Fitri">
+								</div>
+								<div class="col-md-6 pt-md-0 pt-3">
+									<label for="lastname">Specialization</label> <input type="text"
+										class="bg-light form-control" value="Family Medicine">
+								</div>
+							</div>
+							<div class="row py-2">
+								<div class="col-md-6">
+									<label for="email">Email Address</label> <input type="text"
+										class="bg-light form-control"
+										value="mirul@doc.email.com" readonly>
+								</div>
+								<div class="col-md-6 pt-md-0 pt-3">
+									<label for="phone">Phone Number</label> <input type="tel"
+										class="bg-light form-control" value="012-9089878">
+								</div>
+							</div>
+							<div class="row py-2">
+								<div class="col-md-6">
+									<label for="clinicname">Clinic Name</label> <input type="text"
+										class="bg-light form-control" value="Trust Care Center">
+								</div>
+								<div class="col-md-6 pt-md-0 pt-3">
+									<label for="clinicaddress">Clinic Address</label> <input
+										type="text" class="bg-light form-control"
+										value="20, Jalan Jasa Merdeka 22, Melaka.">
+								</div>
 
-				<div class="btn-settings justify-content-center ">
-					<button type="submit" class="btn btn-primary">Update Info</button>
+								<div class="py-3 pb-4 d-flex justify-content-center ">
+									<button class="btn btn-primary mr-3 ">Save Changes</button>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
-				<p style="text-align: center; font-size: 10px;">
-					Doctorange Clinic<br>48,Jalan Jasa Merdeka 48, Bukit Baru,
-					74676, Melaka.
-				</p>
-			</form>
+			</div>
 		</div>
 	</div>
+
+
+
+
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"

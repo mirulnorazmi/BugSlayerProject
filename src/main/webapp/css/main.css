@@ -168,5 +168,29 @@ button.btn.btn-primary:hover {
 	bottom: 0;
 	padding: 15px;
 	background-color: #ffffff;
+
 	border-top: 1px solid #f4f4f4 !important;
+}
+
+/*End of login*/
+.jumbotron.jumbotron-fluid{
+	background-image: url("../images/settings.png");
+	/* width: 1040px; */
+	min-height: 246px;
+	background-size: 350px 280px;
+	background-position-x: right;
+	background-position-y: bottom;
+	background-repeat: no-repeat;
+	border: 2px solid #f4f4f4;
+	border-radius: 20px;
+}
+.container-setting{
+	/* width: 1040px; */
+	min-height: 246px;
+	background-size: 350px 280px;
+	background-position-x: right;
+	background-position-y: bottom;
+	background-repeat: no-repeat;
+	border: 2px solid #f4f4f4;
+	border-radius: 20px;
 }
