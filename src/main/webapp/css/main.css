@@ -4,6 +4,7 @@
 	margin: 0;
 }
 
+
 h1 {
 	color: blue !important;
 }
@@ -13,6 +14,9 @@ h1 {
 	background-color : #ffffff;
 }
 /*en navbar*/
+
+
+/*Start of dashboard*/
 
 #sidebar {
 	position: fixed;
@@ -94,6 +98,18 @@ h1 {
 	background-color: #FF4E5B !important;
 	color: #ffffff !important;
 }
+/*End of dashboard*/
+/*Login*/
+.navbar {
+	border-bottom: 2px solid #f4f4f4;
+	background-color: #ffffff;
+	opacity: 1;
+	font-size:10px;
+}
+a.navbar-brand{
+	font-size:14px;
+}
+
 
 /* start create-appointment.jsp */
 .formCreateApp {
@@ -132,4 +148,22 @@ button.btn {
 .form-check-input:checked {
     background-color: #FF4E5B !important;
     border-color: #FF4E5B !important;
+}
+
+.btn-primary {
+	background-color: #FF4E5B !important;
+	border-color: #FF4E5B !important;
+}
+button.btn.btn-primary:hover{
+	background-color:#ffacb3 !important;
+}
+::placeholder{
+	color:grey !important;
+	font-size: 12px;
+}
+.card-footer{
+	background-color: #ffffff;
+	border-top: 3px solid #f4f4f4 !important;
+	opacity: 1;
+	margin-top:15px;
 }
