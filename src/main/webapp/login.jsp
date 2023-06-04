@@ -17,26 +17,26 @@
 		<div class="d-flex flex-row justify-content-between"
 			style="width: 100%">
 			<a class="navbar-brand" href="#"> <img
-				src="images/logo/logo-doctorange.png" alt="Logo" width="90"
-				height="54" class="d-inline-block align-text-top">
+				src="images/logo/logo-doctorange.png" alt="Logo" width="85"
+				height="44" class="d-inline-block align-text-top">
 			</a>
 		</div>
 	</nav>
-
+<br>
 	<div
 		class="d-flex flex-column justify-content-start align-items-center"
 		style="height: 100vh;">
-		<img src="images/doctor-dashboard-bg.png" alt="image" />
+		<img src="images/doctor-dashboard-bg.png" alt="image" /><br><br>
 		<form class="form-container">
 			<div class="mb-3">
-				<label for="exampleInputEmail1" class="form-label"></label> <input
+				<label for="exampleInputEmail1" class="form-label">Email Address</label> <input
 					type="email" class="form-control" id="exampleInputEmail1"
-					aria-describedby="emailHelp" placeholder="Email Address">
+					aria-describedby="emailHelp" placeholder="your@doc.email.com">
 			</div>
 			<div class="mb-3">
-				<label for="exampleInputPassword1" class="form-label"></label> <input
+				<label for="exampleInputPassword1" class="form-label"></label>Password<input
 					type="password" class="form-control" id="exampleInputPassword1"
-					placeholder="Password">
+					placeholder="password">
 			</div>
 			<div class="mb-3 form-check">
 				<input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -50,12 +50,14 @@
 			</div>
 			<p class="register-login">
 				Don't have an account? <a href="#!" class="register"
-					style="color: grey">Register</a>
+					style="color: grey">Sign Up</a>
 			</p>
 		</form>
-
+	<hr style="margin-bottom: 0px !important;">
 		<div class="card-footer d-flex justify-content-center"
-			style="width: 100%">Doctorange @ copyright 2023. All rights reserved.</div>
+			style="width: 100%">
+			<p style="font-size: 14px; margin: 0px !important;">
+			Doctorange @ copyright 2023. All rights reserved.</p></div>
 
 	</div>
 

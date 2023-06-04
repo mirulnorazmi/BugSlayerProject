@@ -6,6 +6,8 @@
 <meta charset="ISO-8859-1">
 <title>Profile</title>
 <link rel="stylesheet" href="css/main.css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -32,91 +34,136 @@
 					style="padding-left: 15px;">
 					<h5 style="margin: 0px;">Doc. Mirul</h5>
 					<span style="color: #bfbfbf;">mirul@doc.email.com</span>
-					<span  style="color: #bfbfbf;">Joined January 01, 2023</span>
 				</div>
 			</div>
-
 			<div
 				class="d-flex justify-content-center align-items-center mt-3 mb-3"
 				style="width: 100%;">
 				<button class="btn btn-primary col-8" type="button">Log out</button>
 			</div>
 			<hr class="hr-line">
-			<div class="justify-content-center align-items-center p-3">
-			<p style="text-align:center;">A Little About Me</p>
-			<p style="font-size:10px;">Compassionate and systematic professional with 
-			5 years of experience in pharmaceutical services. Highly proficient in carrying out doctor's prescriptions precisely to 
-			prevent adverse drug interactions and ascertain effective treatments.</p>
-			<p style="text-align:center;">Work Experience</p>
-			<p style="font-size:12px; text-align:center;">Ultimate Hospital & Healthcare Services</p>
-			<p style="font-size:8px; text-align:center;">01/2017-12/22</p>
-			<p style="font-size:12px; text-align:center;">Doctorange Clinic</p>
-			<p style="font-size:8px; text-align:center;">01/2023-Present</p>
-		
-			</div>	
+			<ul class="nav nav-underline flex-column mb-auto"
+				style="padding-left: 40px;">
+				<li class="nav-item"><a href="/loginServlet"
+					class="nav-link text-black d-flex justify-content-start"
+					aria-current="page"><span class="material-symbols-outlined"
+						style="margin-right: 20px;"> dashboard </span> Dashboard </a></li>
+				<li><a href="#"
+					class="nav-link text-black d-flex justify-content-start"> <span
+						class="material-symbols-outlined" style="margin-right: 20px;">
+							event </span>My Appointments
+				</a></li>
+				<li class="nav-item"><a href="#"
+					class="nav-link text-black d-flex justify-content-start"><span
+						class="material-symbols-outlined" style="margin-right: 20px;">
+							patient_list </span> My Patients</a></li>
+				<li class="nav-item"><a href="#"
+					class="nav-link active d-flex justify-content-start"> <span
+						class="material-symbols-outlined" style="margin-right: 20px;">
+							settings </span>Settings
+				</a></li>
+			</ul>
 			<hr style="margin-bottom: 0px !important;">
 			<div class="d-flex justify-content-center align-items-center p-3">
-				<p style="font-size: 14px; margin: 0px !important;">Doctorange @ copyright 2023</p>
+				<p style="font-size: 14px; margin: 0px !important;">Doctorange @
+					copyright 2023</p>
 			</div>
 		</div>
+		<!-- End sidebar  -->
 		<div
 			class="dashboard-con d-flex flex-column justify-content-left align-items-center offset-3 col-9">
-			<div>
+			<div style="width: 100%;">
 				<h4 style="text-align: left;">Profile</h4>
+				<div class="jumbotron jumbotron-fluid">
+					
+						<div class="form-floating">
+						<img
+				src="images/logo/logo-doctorange.png" alt="Logo" width="110"
+				height="60" class="d-inline-block align-text-top">
+						<p class="h3" style=" padding: 30px 0 0 100px;  color: #FF4E5B; ">Trust Care Center</p>
+						<p style=" font-size:12px; color:grey;padding:0 100px;">Thank you for your brilliant treatment.</p>
+						</div>
+						
+					
+				</div><br>
+			
+					<div class="container">
+						<div class="form-floating">
+							<div class="py-2">
+								<div class="row py-2">
+									<div class="col-md-6">
+										<label for="firstname">Doctor ID</label> <input type="text"
+											class="bg-light form-control" placeholder="04">
+									</div>
+									<div class="col-md-6 pt-md-0 pt-3">
+										<label for="lastname">Specialization</label> <input
+											type="text" class="bg-light form-control"
+											placeholder="Family Medicine">
+									</div>
+								</div>
+								<div class="row py-2">
+									<div class="col-md-6">
+										<label for="fullname">Full Name</label> <input type="text"
+											class="bg-light form-control" placeholder="Amirul Fitri">
+									</div>
+									<div class="col-md-6 pt-md-0 pt-3">
+										<label for="username">Username</label> <input type="text"
+											class="bg-light form-control" placeholder="Doc.Mirul">
+									</div>
+								</div>
+								<div class="row py-2">
+									<div class="col-md-6">
+										<label for="email">Email Address</label> <input type="text"
+											class="bg-light form-control"
+											placeholder="mirul@doc.email.com" readonly>
+									</div>
+									<div class="col-md-6 pt-md-0 pt-3">
+										<label for="phone">Phone Number</label> <input type="tel"
+											class="bg-light form-control" placeholder="012-9089878">
+									</div>
+								</div>
+								<div class="row py-2">
+									<div class="col-md-6">
+										<label for="newpassword">New Password</label> <input
+											type="password" class="bg-light form-control"
+											placeholder="New Password">
+									</div>
+									<div class="col-md-6 pt-md-0 pt-3">
+										<label for="confirmpassword">Confirm Password</label> <input
+											type="password" class="bg-light form-control"
+											placeholder="Confirm Password">
+									</div>
+								</div>
+								<div class="row py-2">
+									<div class="col-md-6">
+										<label for="clinicname">Clinic Name</label> <input type="text"
+											class="bg-light form-control" placeholder="Trust Care Center">
+									</div>
+									<div class="col-md-6 pt-md-0 pt-3">
+										<label for="clinicaddress">Clinic Address</label> <input
+											type="text" class="bg-light form-control"
+											placeholder="20, Jalan Jasa Merdeka 22, Melaka.">
+									</div>
+									<div
+										class="py-3 pb-4 d-flex justify-content-center ">
+										<button class="btn btn-primary mr-3 ">Save Changes</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+	
+
 			</div>
-			<form class="row g-3 d-flex flex-row justify-content-center">
-			<div class="col-md-5">
-    <label for="firstname" class="form-label">First Name</label>
-    <input type="text" class="form-control" id="inputFirstName" value="Doc." readonly>
-  </div><br>
-  <div class="col-md-5">
-    <label for="lastname" class="form-label">Last Name</label>
-    <input type="text" class="form-control" id="inputLastName" value="Mirul" >
-  </div>
-  <div class="col-md-5">
-    <label for="inputEmail4" class="form-label">Email</label>
-    <input type="email" class="form-control" id="inputEmail4" value="mirul@doc.email.com" disabled="">
-  </div>
-   <div class="col-md-5">
-    <label for="phonenumber" class="form-label">Phone Number</label>
-    <input type="text" class="form-control" id="inputPhoneNumber" value="010-90909090">
-  </div>
-  <div class="col-md-5">
-    <label for="inputNewPassword4" class="form-label">New Password</label>
-    <input type="newpassword" class="form-control" id="inputNewPassword4" >
-  </div>
-   <div class="col-md-5">
-    <label for="inputPassword4" class="form-label">Confirm Password</label>
-    <input type="password" class="form-control" id="inputPassword4" >
-  </div>
-  <div class="col-md-5">
-    <label for="" class="form-label">Address 1</label>
-    <input type="text" class="form-control" id="inputAddress" value="48,Jalan Jasa Merdeka 48" >
-  </div>
-  <div class="col-5">
-  <label for="" class="form-label">Address 2</label>
-    <input type="text" class="form-control" id="inputAddress" value="">
-  </div>
-  <div class="col-md-5">
-    <label for="inputState" class="form-label">State</label>
-    <select id="inputState" class="form-select">
-      <option selected>Melaka Tengah</option>
-      <option>Alor Gajah</option>
-      <option>Jasin</option>
-    </select>
-  </div>
-  <div class="col-md-5">
-    <label for="inputZip" class="form-label">Zip</label>
-    <input type="text" class="form-control" id="inputZip" value="98909" >
-  </div>
-  
-  <div class="btn-settings justify-content-center ">
-    <button type="submit" class="btn btn-primary">Update Info</button>
-  </div>
-   <p style="text-align:center; font-size:10px;">Doctorange Clinic<br>48,Jalan Jasa Merdeka 48, Bukit Baru, 74676, Melaka.</p>
-</form>
+
+
+
 		</div>
 	</div>
+
+
+
+
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
