@@ -125,20 +125,20 @@
 					</thead>
 					<tbody>
 						<%
-						String[][] patients = {{"Kamsiah haidar", "24-jun-2023", "10:00", "1 hour", "no", "no", "no"},
-								{"Jacob zuckerberg", "02-apr-2023", "13:10", "30 minutes", "yes", "yes", "yes"},
-								{"Khabib max", "10-dec-2023", "14:30", "1 hour", "no", "no", "no"},
-								{"Kamsiah haidar", "24-jun-2023", "10:00", "1 hour", "no", "no", "no"},
-								{"Jacob zuckerberg", "02-apr-2023", "13:10", "30 minutes", "yes", "yes", "yes"},
-								{"Khabib max", "10-dec-2023", "14:30", "1 hour", "no", "no", "no"},
-								{"Kamsiah haidar", "24-jun-2023", "10:00", "1 hour", "no", "no", "no"},
-								{"Jacob zuckerberg", "02-apr-2023", "13:10", "30 minutes", "yes", "yes", "yes"},
-								{"Khabib max", "10-dec-2023", "14:30", "1 hour", "no", "no", "no"}};
+						String[][] patients = {{"Kamsiah haidar", "2023-06-24", "10:00", "1 hour", "not yet", "not yet", "unpaid"},
+								{"Jacob zuckerberg", "2023-05-03", "13:10", "30 minutes", "not yet", "not yet", "unpaid"},
+								{"Khabib max", "10-dec-2023", "14:30", "1 hour", "not yet", "not yet", "unpaid"},
+								{"Kamsiah haidar", "24-jun-2023", "10:00", "1 hour", "not yet", "not yet", "unpaid"},
+								{"Jacob zuckerberg", "02-apr-2023", "13:10", "30 minutes", "not yet", "not yet", "unpaid"},
+								{"Khabib max", "10-dec-2023", "14:30", "1 hour", "not yet", "not yet", "unpaid"},
+								{"Kamsiah haidar", "24-jun-2023", "10:00", "1 hour", "not yet", "not yet", "unpaid"},
+								{"Jacob zuckerberg", "02-apr-2023", "13:10", "30 minutes", "not yet", "not yet", "unpaid"},
+								{"Khabib max", "10-dec-2023", "14:30", "1 hour", "not yet", "not yet", "nounpaid"}};
 
 						for (int i = 0; i < patients.length; i++) {
 							int j = 0;
 						%>
-						<tr key="<%=i + 1%>" onclick="myFunction(<%=i + 1%>, 'update-appointment.jsp')">
+						<tr key="<%=i + 1%>" onclick="myFunction(<%=i + 1%>, 'edit-appointment.jsp')">
 
 							<th scope="row" style="color: #FF4E5B !important;"><%=i + 1%></th>
 							<td><%=patients[i][j]%></td>

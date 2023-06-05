@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Update Appointment</title>
+<title>Edit Appointment</title>
 <link rel="stylesheet" href="css/main.css">
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -71,6 +71,9 @@
 			</div>
 		</div>
 		<!-- End sidebar  -->
+		<%
+		String[][] patients = { { "Kamsiah haidar", "2023-06-24", "10:00", "1 hour", "not yet", "not yet", "unpaid" } };
+		%>  
 		<div
 			class="dashboard-con d-flex flex-column justify-content-left align-items-center offset-3 col-9">
 			<div style="width: 100% !important;">
@@ -81,38 +84,39 @@
 					<div class="mb-3 col-6">
 						<label for="exampleInputName" class="form-label">Name</label> <input
 							type="text" class="form-control" id="name"
-							aria-describedby="name" value="Kamsiah haidar">
+							aria-describedby="name" value="<%=patients[0][0]%>"> 
 					</div>
 					<div class="mb-3 col-6">
 						<label for="exampledate" class="form-label">Date</label> <input
 							type="date" class="form-control" id="exampledate"
-							value="2013-01-08">
+							value="<%=patients[0][1]%>">
 					</div>
 				</div>
 				<div class="row col-12">
 					<div class="mb-3 col-6">
 						<label for="exampletime" class="form-label">Time</label> <input
-							type="time" class="form-control" id="exampleTime" value="10:00">
+							type="time" class="form-control" id="exampleTime" value="<%=patients[0][2]%>">
 					</div>
 					<div class="mb-3 col-6">
 						<label for="exampleduration" class="form-label">Duration</label> <input
 							type="text" class="form-control" id="exampleduration"
-							value="1 hour">
+							value="<%=patients[0][3]%>">
 					</div>
 				</div>
 				<div class="row col-12">
 					<div class="mb-3 col-6">
 						<label for="exampleStatus" class="form-label">Status</label> <input
 							type="text" class="form-control" id="exampleStatus"
-							value="not yet">
+							value="<%=patients[0][4]%>">
 					</div>
 					<div class="mb-3 col-6">
 						<label for="exampleBill" class="form-label">Bill</label>
 						<div class="input-group mb-3">
 							<input type="text" class="form-control" id="exampleBill"
-								value="not yet">
-							<button class="btn btn-outline-secondary" type="button"
-								id="button-addon2">Generate</button>
+								value="<%=patients[0][6]%>" disabled> 
+							<button class="btn btn-outline-primary" type="button"
+								id="button-addon2" data-bs-toggle="modal"
+								data-bs-target="#billModal">Edit bill</button>
 						</div>
 					</div>
 
@@ -127,7 +131,6 @@
 						<i class="bi bi-trash3"></i>
 					</button>
 					<button type="submit" class="btn btn-primary">Update</button>
-
 				</div>
 			</form>
 		</div>
@@ -153,6 +156,53 @@
 				</div>
 			</div>
 		</div>
+		<!--Modal bill  -->
+		<div class="modal fade" id="billModal" tabindex="-1"
+			aria-labelledby="billModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1 class="modal-title fs-5" id="billModalLabel">Bill
+							information</h1>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<div>
+							<label for="exampleBill" class="form-label">Bill ID</label> <input
+								type="text" class="form-control" id="exampleBill" value="1"
+								disabled>
+						</div>
+						<div>
+							<label for="exampledate" class="form-label">Date</label> <input
+								type="date" class="form-control" id="exampledate"
+								value="<%=patients[0][1]%>">
+						</div>
+
+						<div>
+							<label for="exampleStatus" class="form-label">Status</label> 
+							<select
+								class="form-select" aria-label="bill status">
+								<option selected hidden value="<%=patients[0][6]%>"><%=patients[0][6]%></option> 
+								<option value="unpaid">unpaid</option>
+								<option value="paid">paid</option>
+							</select> 
+						</div>
+						<div>
+							<label for="exampleAmount" class="form-label">Amount</label> <input
+								type="text" class="form-control" id="exampleAmount"
+								value="RM150.00">
+						</div>
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-bs-dismiss="modal">Cancel</button>
+						<button type="button" class="btn btn-success">Save bill</button>
+					</div>
+				</div>
+			</div>
+		</div> 
 
 		<!-- Script -->
 		<script

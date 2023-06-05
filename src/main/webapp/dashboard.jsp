@@ -46,12 +46,14 @@
 					class="nav-link active d-flex justify-content-start"
 					aria-current="page"><span class="material-symbols-outlined"
 						style="margin-right: 20px;"> dashboard </span> Dashboard </a></li>
-				<li class="nav-item"><a href="/BugSlayerProject/my-appointments.jsp"
+				<li class="nav-item"><a
+					href="/BugSlayerProject/my-appointments.jsp"
 					class="nav-link text-black d-flex justify-content-start"> <span
 						class="material-symbols-outlined" style="margin-right: 20px;">
 							event </span>My Appointments
 				</a></li>
-				<li class="nav-item"><a href="/BugSlayerProject/my-patients.jsp"
+				<li class="nav-item"><a
+					href="/BugSlayerProject/my-patients.jsp"
 					class="nav-link text-black d-flex justify-content-start"><span
 						class="material-symbols-outlined" style="margin-right: 20px;">
 							patient_list </span> My Patients</a></li>
@@ -148,11 +150,18 @@
 					<h4 style="text-align: left;">Shortcut</h4>
 					<div
 						class="d-flex flex-column justify-content-left align-items-top"
-						style="width: 100%">
-						<button type="button" class="btn btn-outline-primary mb-3">
-							Create appointment</button>
-						<button type="button" class="btn btn-outline-primary mb-3">
-							Create patients</button>
+						style="width: 100% !important;"> 
+						<a href="/BugSlayerProject/create-appointment.jsp"
+							style="text-decoration: none;"
+							class="mb-3">
+							<button type="button" class="btn btn-outline-primary" style="width: 100% !important;">Create
+								appointment</button>
+						</a> <a href="/BugSlayerProject/create-patient.jsp"
+							style="text-decoration: none;"
+							class="mb-3">
+							<button type="button" class="btn btn-outline-primary" style="width: 100% !important;">
+								Create patients</button>
+						</a>
 						<!-- <button type="button" class="btn btn-outline-primary mb-3">
 							Display doctors</button>
 						<button type="button" class="btn btn-outline-primary mb-3">
