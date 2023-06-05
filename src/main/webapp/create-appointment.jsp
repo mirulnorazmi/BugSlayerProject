@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Booking Appointment</title>
 <link rel="stylesheet" href="css/main.css">
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -12,10 +12,11 @@
 	integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
 	crossorigin="anonymous">
 <link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
-<body style="height: 100vh;">
-
+<body>
 	<div class="d-flex flex-row" style="height: 100%;">
 		<!-- Start sidebar  -->
 		<div id="sidebar"
@@ -43,15 +44,17 @@
 			<ul class="nav nav-underline flex-column mb-auto"
 				style="padding-left: 40px;">
 				<li class="nav-item"><a href="/BugSlayerProject/dashboard.jsp"
-					class="nav-link active d-flex justify-content-start"
+					class="nav-link text-black d-flex justify-content-start"
 					aria-current="page"><span class="material-symbols-outlined"
 						style="margin-right: 20px;"> dashboard </span> Dashboard </a></li>
-				<li class="nav-item"><a href="/BugSlayerProject/my-appointments.jsp"
-					class="nav-link text-black d-flex justify-content-start"> <span
-						class="material-symbols-outlined" style="margin-right: 20px;">
-							event </span>My Appointments
+				<li class="nav-item"><a
+					href="/BugSlayerProject/my-appointments.jsp"
+					class="nav-link active text-black d-flex justify-content-start">
+						<span class="material-symbols-outlined"
+						style="margin-right: 20px;"> event </span>My Appointments
 				</a></li>
-				<li class="nav-item"><a href="/BugSlayerProject/my-patients.jsp"
+				<li class="nav-item"><a
+					href="/BugSlayerProject/my-patients.jsp"
 					class="nav-link text-black d-flex justify-content-start"><span
 						class="material-symbols-outlined" style="margin-right: 20px;">
 							patient_list </span> My Patients</a></li>
@@ -69,34 +72,62 @@
 		</div>
 		<!-- End sidebar  -->
 		<div
-			class="dashboard-con d-flex flex-column justify-content-left align-items-center offset-3 col-9">
-			<form class="container-fluid formCreateApp">
-				<div class="mb-3">
-					<label for="exampleInputEmail1" class="form-label">Name</label> <input
-						type="name" class="form-control" id="exampleInputEmail1"
-						aria-describedby="emailHelp">
-				</div>
-				<div class="mb-3">
-					<label for="exampleInputEmail1" class="form-label">Email
-						address</label> <input type="email" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp">
-				</div>
-				<div class="mb-3">
-					<label for="exampleInputEmail1" class="form-label">Phone
-						number</label> <input type="name" class="form-control"
-						id="exampleInputEmail1" aria-describedby="emailHelp">
-				</div>
-				<div class="mb-3 form-check">
-					<input type="checkbox" class="form-check-input" id="exampleCheck1">
-					<label class="form-check-label" for="exampleCheck1">Check
-						me out</label>
-				</div>
-				<button type="submit" class="btn btn-primary">Create</button>
-			</form>
+			class="dashboard-con d-flex flex-column justify-content-center align-items-center offset-3 col-9">
+			<div style="width: 100% !important;">
+				<h4 style="text-align: left;">Create Appointment</h4>
+			</div>
+			<div
+				class="d-flex flex-crow justify-content-center align-items-center"
+				style="height: 80vh !important;">
+				<img src="images/booking.png" alt="image" class="col-5"/>
+				<form class="container-fluid formCreateApp col-7"> 
+
+					<div class="mb-3 col-12">
+						<label for="exampleInputName" class="form-label">Name</label> <input
+							type="text" class="form-control" id="name"
+							aria-describedby="name">
+					</div>
+					<div class="mb-3 col-12">
+						<label for="exampleEmail" class="form-label">Email</label> <input
+							type="email" class="form-control" id="exampleEmail">
+					</div>
+					<div class="row col-12">
+						<div class="mb-3 col-6">
+							<label for="examplePhone" class="form-label">Phone number</label>
+							<input type="text" class="form-control" id="examplePhone">
+						</div>
+						<div class="mb-3 col-6">
+							<label for="exampledate" class="form-label">Date</label> <input
+								type="date" class="form-control" id="exampledate"
+								value="2013-01-08">
+						</div>
+					</div>
+					<div class="row col-12">
+						<div class="mb-3 col-6">
+							<label for="exampletime" class="form-label">Time</label> <input
+								type="time" class="form-control" id="exampleTime" value="10:00">
+						</div>
+						<div class="mb-3 col-6">
+							<label for="exampleduration" class="form-label">Duration</label>
+							<input type="text" class="form-control" id="exampleduration"
+								value="1 hour">
+						</div>
+					</div>
+					<div class="d-flex justify-content-between">
+						<!-- <button type="button" class="btn btn-outline-danger"
+							data-bs-toggle="modal" data-bs-target="#deleteModal">
+							<i class="bi bi-trash3"></i>
+						</button> -->
+						<button type="reset" class="btn btn-outline-danger">Reset</button>
+						<button type="submit" class="btn btn-primary">Update</button>
+
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
 
-	<!-- Script section -->
+	<!-- Script -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"

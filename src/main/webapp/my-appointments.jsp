@@ -100,7 +100,7 @@
 								Time</label>
 						</div>
 					</section>
-					<a href="#" style="text-decoration: none;">
+					<a href="/BugSlayerProject/create-appointment.jsp" style="text-decoration: none;">
 						<button type="button" class="btn btn-outline-primary">
 							<i class="bi bi-plus-circle"></i> Create appointment
 						</button>
@@ -138,7 +138,7 @@
 						for (int i = 0; i < patients.length; i++) {
 							int j = 0;
 						%>
-						<tr key="<%=i + 1%>" onclick="myFunction(<%=i + 1%>, 'settings.jsp')">
+						<tr key="<%=i + 1%>" onclick="myFunction(<%=i + 1%>, 'update-appointment.jsp')">
 
 							<th scope="row" style="color: #FF4E5B !important;"><%=i + 1%></th>
 							<td><%=patients[i][j]%></td>
