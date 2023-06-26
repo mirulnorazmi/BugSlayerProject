@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,10 +22,11 @@
 
 		<nav class="navbar navbar-reg fixed-top ">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="#"> <img
+				<a class="navbar-brand" href="<%=request.getContextPath()%>"> <img
 					src="images/logo/logo-doctorange.png" alt="Logo" width="150"
 					height="50" height="40" class="d-inline-block align-text-top">
-				</a> <a href="/BugSlayerProject/" style="text-decoration: none;"><button
+				</a> <a href="<%=request.getContextPath()%>"
+					style="text-decoration: none;"><button
 						class="btn btn-outline-danger me-2" type="button">Sign in</button>
 				</a>
 
@@ -32,7 +36,7 @@
 	<!-- End navbar  -->
 
 	<!-- Start form -->
-	<div class="container col-12"> 
+	<div class="container col-12">
 		<div style="padding: 0 60px;">
 			<div
 				class="d-flex flex-row justify-content-center align-items-center g-0 card mt-5 container-fluid">
@@ -43,45 +47,54 @@
 				<div class="col-md-8">
 					<div class="card-body">
 						<h2>Registration</h2>
-						<form class="row g-3">
+						<br>
+						<form class="row g-3" action="register" method="post">
 							<div class="col-md-6">
 								<label for="inputName4" class="form-label">Full Name</label> <input
-									type="text" class="form-control" id="inputName4" required>
-							</div>
-							<div class="col-md-6">
-								<label for="inputUsername4" class="form-label">Username</label>
-								<input type="text" class="form-control" id="inputUsername4"
+									name="name" type="text" class="form-control" id="inputName4"
 									required>
 							</div>
+							<!-- <div class="col-md-6">
+								<label for="inputUsername4" class="form-label">Username</label>
+								<input name="username" type="text" class="form-control" id="inputUsername4"
+									required>
+							</div> -->
 							<div class="col-md-6">
 								<label for="inputEmail4" class="form-label">Email</label> <input
-									type="email" class="form-control" id="inputEmail4"
+									name="email" type="email" class="form-control" id="inputEmail4"
 									placeholder="ex: abc@xyz.com" required>
 							</div>
 							<div class="col-md-6">
 								<label for="inputPhone4" class="form-label">Phone Number</label>
-								<input type="text" class="form-control" id="inputPhone4"
-									placeholder="ex: 0123456789" required>
-							</div>
-							<div class="col-md-6">
-								<label for="inputPassword4" class="form-label">Password</label>
-								<input type="password" class="form-control" id="inputPassword4"
-									required>
-							</div>
-							<div class="col-md-6">
-								<label for="inputCPassword4" class="form-label">Confirm
-									Password</label> <input type="password" class="form-control"
-									id="inputCPassword4" required>
-							</div>
-							<div class="col-md-6">
-								<label for="inputClinicName" class="form-label">Clinic
-									Name</label> <input type="text" class="form-control"
-									id="inputClinicName" required>
+								<input name="phone" type="text" class="form-control"
+									id="inputPhone4" placeholder="ex: 0123456789" required>
 							</div>
 							<div class="col-md-6">
 								<label for="inputSpecial4" class="form-label">Specialization</label>
-								<input type="text" class="form-control" id="inputSpecial4"
-									required>
+								<input name="specialization" type="text" class="form-control"
+									id="inputSpecial4" required>
+							</div>
+							<div class="col-md-6">
+								<label for="inputPassword4" class="form-label">Password</label>
+								<input name="password" type="password" class="form-control"
+									id="inputPassword4" placeholder="minimum 8 character" required>
+							</div>
+							<div class="col-md-6">
+								<label for="inputCPassword4" class="form-label">Confirm
+									Password</label> <input name="cPassword" type="password"
+									class="form-control" id="inputCPassword4"
+									placeholder="must be the same as password" required>
+							</div>
+							<div class="col-md-6">
+								<label for="inputClinicName" class="form-label">Clinic
+									Name</label> <input name="clinicName" list="datalistOptions"
+									type="text" class="form-control" id="inputClinicName"
+									placeholder="new clinic or choose existing clinic" required>
+								<datalist id="datalistOptions">
+									<c:forEach var="clinic" items="${clinicList}">
+										<option value="<c:out value="${clinic.name}" />">
+									</c:forEach>
+								</datalist>
 							</div>
 							<!-- <div class="col-12">
 								<label for="inputAddress" class="form-label">Clinic
@@ -89,7 +102,7 @@
 									id="inputAddress" placeholder="1234 Main St">
 							</div> -->
 							<div class="col-12 text-center">
-								<button class="btn btn-outline-danger me-2" type="button">Register</button>
+								<button class="btn btn-outline-danger me-2" type="submit">Register</button>
 							</div>
 						</form>
 					</div>

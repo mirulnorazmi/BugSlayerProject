@@ -40,7 +40,7 @@ p {
 }
 /*nav bar*/
 .navbar-reg {
-	border-bottom: 1px solid #cecece !important;
+	border-bottom: 0px !important;
 	background-color: #ffffff;
 }
 /*en navbar*/
