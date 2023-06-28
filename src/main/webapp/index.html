@@ -17,14 +17,14 @@
 		<img src="images/logo/logo-doctorange.png" alt="Logo" width="200"
 			class="d-inline-block align-text-top"/> 
 		<form class="form-container col-3"
-			action="/BugSlayerProject/dashboard.jsp">
+			action="LoginServlet" method="post">
 			<div class="mb-2 mt-4">
-				<input type="email" class="form-control" id="exampleInputEmail1"
-					aria-describedby="emailHelp" placeholder="Email Address" />
+				<input name="email" type="email" class="form-control" id="exampleInputEmail1"
+					aria-describedby="emailHelp" placeholder="Email Address" required/>
 			</div class="mb-3">
 			<div>
-				<input type="password" class="form-control"
-					id="exampleInputPassword1" placeholder="Password"> 
+				<input name="password" type="password" class="form-control"
+					id="exampleInputPassword1" placeholder="Password" required> 
 			</div>
 			<div class="mb-3 form-check">
 				<input type="checkbox" class="form-check-input" id="exampleCheck1">

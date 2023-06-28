@@ -35,8 +35,9 @@
 				<div
 					class="d-flex flex-column justify-content-center align-items-right"
 					style="padding-left: 15px;">
-					<h5 style="margin: 0px;">Doc. Mirul</h5>
-					<span style="color: #bfbfbf;">mirul@doc.email.com</span>
+					<h5 style="margin: 0px;">
+						Doc. <c:out value='${doctor.name}' /></h5>
+					<span style="color: #bfbfbf;"><%=session.getAttribute("email")%></span>
 				</div>
 			</div>
 			<a href="/BugSlayerProject/"
@@ -47,22 +48,24 @@
 			<hr class="hr-line">
 			<ul class="nav nav-underline flex-column mb-auto"
 				style="padding-left: 40px;">
-				<li class="nav-item"><a href="/BugSlayerProject/dashboard.jsp"
+				<li class="nav-item"><a
+					href="<%=request.getContextPath()%>/dashboard"
 					class="nav-link text-black d-flex justify-content-start"
 					aria-current="page"><span class="material-symbols-outlined"
 						style="margin-right: 20px;"> dashboard </span> Dashboard </a></li>
 				<li class="nav-item"><a
-					href="/BugSlayerProject/my-appointments.jsp"
+					href="<%=request.getContextPath()%>/my-appointment"
 					class="nav-link text-black d-flex justify-content-start"> <span
 						class="material-symbols-outlined" style="margin-right: 20px;">
 							event </span>My Appointments
 				</a></li>
 				<li class="nav-item"><a
-					href="/BugSlayerProject/my-patients.jsp"
+					href="<%=request.getContextPath()%>/my-patient"
 					class="nav-link active text-black d-flex justify-content-start"><span
 						class="material-symbols-outlined" style="margin-right: 20px;">
 							patient_list </span> My Patients</a></li>
-				<li class="nav-item"><a href="/BugSlayerProject/settings.jsp"
+				<li class="nav-item"><a
+					href="<%=request.getContextPath()%>/setting"
 					class="nav-link text-black d-flex justify-content-start"> <span
 						class="material-symbols-outlined" style="margin-right: 20px;">
 							settings </span>Settings

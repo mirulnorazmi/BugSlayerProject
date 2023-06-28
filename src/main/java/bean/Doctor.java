@@ -18,6 +18,13 @@ public class Doctor {
 		this.phone = phone;
 		this.clinic_id = clinic_id;
 	}
+//	Get Info constr
+	public Doctor(int id, String name, String email, int clinic_id) {
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.clinic_id = clinic_id;
+	}
 	
 	public Doctor(int id, String name, String email, String password, String specialization, String phone,
 			int clinic_id) {

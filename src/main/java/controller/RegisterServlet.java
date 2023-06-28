@@ -75,11 +75,17 @@ public class RegisterServlet extends HttpServlet {
 			String clinic_name = request.getParameter("clinicName");
 			int clinic_id = clinicService.getClinicId(clinic_name);
 			System.out.println("Clinic_id : " + clinic_id);
-			
 			Doctor doctor = new Doctor(name, email, password, specialization, phone, clinic_id);
-			doctorService.insertDoctor(doctor);
-			System.out.println("success created...");
-			response.sendRedirect(request.getContextPath());
+			
+			if (doctorService.checkEmail(doctor)) {
+				doctorService.insertDoctor(doctor);
+				System.out.println("success created...");
+				response.sendRedirect(request.getContextPath());
+			}else {
+				System.out.println("Email already exist...");
+				response.sendRedirect(request.getContextPath() + "/register?error=102");
+			}
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
