@@ -206,8 +206,10 @@
 						<div class="modal-header">
 							<h1 class="modal-title fs-5" id="deleteModalLabel">Are you
 								sure?</h1>
-								<input type="text" hidden name="appointmentId" value="<c:out value="${appointment.appointment_id}"/>"/>
-								<input type="text" hidden name="billId" value="<c:out value="${appointment.bill_id}"/>"/>
+							<input type="text" hidden name="appointmentId"
+								value="<c:out value="${appointment.appointment_id}"/>" /> <input
+								type="text" hidden name="billId"
+								value="<c:out value="${appointment.bill_id}"/>" />
 							<button type="button" class="btn-close" data-bs-dismiss="modal"
 								aria-label="Close"></button>
 						</div>
@@ -265,9 +267,12 @@
 								</select>
 							</div>
 							<div>
-								<label for="exampleAmount" class="form-label">Amount</label> <input
-									type="text" name="amount" class="form-control"
-									id="exampleAmount" value="<c:out value='${bill.amount }'/>">
+								<label for="exampleAmount" class="form-label">Amount</label>
+								<div class="input-group mb-3">
+									<span class="input-group-text">RM</span> <input type="text"
+										name="amount" class="form-control" id="exampleAmount"
+										value="<c:out value='${bill.amount }'/>">
+								</div>
 							</div>
 
 						</div>
