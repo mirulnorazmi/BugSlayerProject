@@ -32,7 +32,7 @@
 					class="d-flex flex-column justify-content-center align-items-right"
 					style="padding-left: 15px;">
 					<h5 style="margin: 0px;">
-						Doc. <c:out value='${doctor.name}' /></h5>
+						Doc. <%=session.getAttribute("doc_surname") %></h5>
 					<span style="color: #bfbfbf;"><%=session.getAttribute("email")%></span>
 				</div>
 			</div>
@@ -155,7 +155,7 @@
 					<div
 						class="d-flex flex-column justify-content-left align-items-top"
 						style="width: 100% !important;">
-						<a href="/BugSlayerProject/create-appointment.jsp"
+						<a href="<%=request.getContextPath()%>/create-appointment"
 							style="text-decoration: none;" class="mb-3">
 							<button type="button" class="btn btn-outline-primary"
 								style="width: 100% !important;">Create appointment</button>

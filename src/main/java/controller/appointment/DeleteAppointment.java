@@ -1,41 +1,36 @@
 package controller.appointment;
 
-import jakarta.servlet.RequestDispatcher;
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 import services.AppointmentService;
+import services.BillServices;
 
 import java.io.IOException;
-import java.util.List;
-
-import bean.Appointment;
-import bean.Patient;
+import java.sql.SQLException;
 
 /**
- * Servlet implementation class MyAppointment
+ * Servlet implementation class DeleteAppointment
  */
-@WebServlet("/my-appointment")
-public class MyAppointment extends HttpServlet {
+public class DeleteAppointment extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private AppointmentService appointmentService;
+	private BillServices billServices;
 
 	/**
-     * @see HttpServlet#HttpServlet()
-     */
+	 * @see HttpServlet#HttpServlet()
+	 */
 	public void init() {
 		appointmentService = new AppointmentService();
+		billServices = new BillServices();
 	}
-	
-    public MyAppointment() { 
-    	
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	public DeleteAppointment() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
@@ -44,14 +39,7 @@ public class MyAppointment extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-//		Patient patient = new Patient();
-		HttpSession session = request.getSession();
-		int doc_id = (int) session.getAttribute("doctor_id");
-		List<Appointment> listAppointment = appointmentService.selectAllAppointment(doc_id);
-		request.setAttribute("listAppointment", listAppointment);
-//		System.out.println();
-		RequestDispatcher dispatcher = request.getRequestDispatcher("my-appointments.jsp");
-		dispatcher.forward(request, response);
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -62,6 +50,23 @@ public class MyAppointment extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 //		doGet(request, response);
+		int id = Integer.parseInt(request.getParameter("appointmentId"));
+		int bill_id = Integer.parseInt(request.getParameter("billId"));
+
+		try {
+			boolean statusAppointment = appointmentService.deleteAppointment(id);
+			if (statusAppointment) {
+				boolean statusBill = billServices.deleteBill(bill_id);
+				if (statusBill) {
+					response.sendRedirect(request.getContextPath() + "/my-appointment?delete=true");
+				}
+			} else {
+				response.sendRedirect(request.getContextPath() + "/edit-appointment?id=" + id + "&delete=false");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 

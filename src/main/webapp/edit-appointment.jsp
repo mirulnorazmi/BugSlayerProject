@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,7 +33,8 @@
 					class="d-flex flex-column justify-content-center align-items-right"
 					style="padding-left: 15px;">
 					<h5 style="margin: 0px;">
-						Doc. <c:out value='${doctor.name}' /></h5>
+						Doc.
+						<%=session.getAttribute("doc_surname")%></h5>
 					<span style="color: #bfbfbf;"><%=session.getAttribute("email")%></span>
 				</div>
 			</div>
@@ -51,9 +53,9 @@
 						style="margin-right: 20px;"> dashboard </span> Dashboard </a></li>
 				<li class="nav-item"><a
 					href="<%=request.getContextPath()%>/my-appointment"
-					class="nav-link active text-black d-flex justify-content-start"> <span
-						class="material-symbols-outlined" style="margin-right: 20px;">
-							event </span>My Appointments
+					class="nav-link active text-black d-flex justify-content-start">
+						<span class="material-symbols-outlined"
+						style="margin-right: 20px;"> event </span>My Appointments
 				</a></li>
 				<li class="nav-item"><a
 					href="<%=request.getContextPath()%>/my-patient"
@@ -76,47 +78,32 @@
 		<!-- End sidebar  -->
 		<%
 		String[][] patients = { { "Kamsiah haidar", "2023-06-24", "10:00", "1 hour", "not yet", "not yet", "unpaid" } };
-		%>  
+		%>
 		<div
 			class="dashboard-con d-flex flex-column justify-content-left align-items-center offset-3 col-9">
 			<div style="width: 100% !important;">
 				<h4 style="text-align: left;">Edit Appointments</h4>
 			</div>
-			<form class="container-fluid formCreateApp">
+			<form class="container-fluid formCreateApp" action="EditAppointment"
+				method="post">
 				<div class="row col-12">
 					<div class="mb-3 col-6">
-						<label for="exampleInputName" class="form-label">Name</label> <input
-							type="text" class="form-control" id="name"
-							aria-describedby="name" value="<%=patients[0][0]%>"> 
+						<c:if test="${appointment != null}">
+							<input type="hidden" name="appointmentId"
+								value="<c:out value='${appointment.appointment_id}' />" />
+						</c:if>
+						<label for="exampleInputName" class="form-label">Patient
+							Name <i style="font-size: 12px;">(edit in My Patients)</i>
+						</label> <input type="text" class="form-control" id="name"
+							aria-describedby="name"
+							value="<c:out value='${appointment.patient_name}' />" disabled>
 					</div>
 					<div class="mb-3 col-6">
-						<label for="exampledate" class="form-label">Date</label> <input
-							type="date" class="form-control" id="exampledate"
-							value="<%=patients[0][1]%>">
-					</div>
-				</div>
-				<div class="row col-12">
-					<div class="mb-3 col-6">
-						<label for="exampletime" class="form-label">Time</label> <input
-							type="time" class="form-control" id="exampleTime" value="<%=patients[0][2]%>">
-					</div>
-					<div class="mb-3 col-6">
-						<label for="exampleduration" class="form-label">Duration</label> <input
-							type="text" class="form-control" id="exampleduration"
-							value="<%=patients[0][3]%>">
-					</div>
-				</div>
-				<div class="row col-12">
-					<div class="mb-3 col-6">
-						<label for="exampleStatus" class="form-label">Status</label> <input
-							type="text" class="form-control" id="exampleStatus"
-							value="<%=patients[0][4]%>">
-					</div>
-					<div class="mb-3 col-6">
-						<label for="exampleBill" class="form-label">Bill</label>
+						<label for="exampleBill" class="form-label">Bill status</label>
 						<div class="input-group mb-3">
 							<input type="text" class="form-control" id="exampleBill"
-								value="<%=patients[0][6]%>" disabled> 
+								value="<c:out value='${appointment.bill_status eq "pending" ? "Pending 🕒" : "Done ✅"}' />"
+								disabled>
 							<button class="btn btn-outline-primary" type="button"
 								id="button-addon2" data-bs-toggle="modal"
 								data-bs-target="#billModal">Edit bill</button>
@@ -124,9 +111,82 @@
 					</div>
 
 				</div>
+				<div class="row col-12">
+					<div class="mb-3 col-6">
+						<label for="exampledate" class="form-label">Date</label> <input
+							type="date" name="date" class="form-control" id="exampledate"
+							value="<c:out value='${appointment.date}' />">
+					</div>
+					<div class="mb-3 col-6">
+						<label for="exampletime" class="form-label">Time</label> <input
+							type="time" name="appointmentTime" class="form-control"
+							id="exampleTime" step="1"
+							value="<c:out value='${appointment.time}' />">
+					</div>
+
+				</div>
+				<div class="row col-12">
+					<div class="mb-3 col-6">
+						<label for="exampleduration" class="form-label">Duration</label>
+						<%-- <input
+							type="text" class="form-control" id="exampleduration"
+							value="<%=patients[0][3]%>"> --%>
+						<select class="form-select" aria-label="Duration select"
+							name="duration">
+
+							<option value="<c:out value="${appointment.duration }"/>"><c:out
+									value="${appointment.duration }" /></option>
+
+							<c:if test="${appointment.duration != '30 minute'}">
+								<option value="30 minute">30 minute</option>
+							</c:if>
+							<c:if test="${appointment.duration != '1 hour'}">
+								<option value="1 hour">1 hour</option>
+							</c:if>
+							<c:if test="${appointment.duration != '1 and half hour'}">
+								<option value="1 and half hour">1 and half hour</option>
+							</c:if>
+							<c:if test="${appointment.duration != '2 hour'}">
+								<option value="2 hour">2 hour</option>
+							</c:if>
+						</select>
+					</div>
+					<div class="mb-3 col-6">
+						<label for="exampleStatus" class="form-label">Status</label>
+						<%-- input
+							type="text" class="form-control" id="exampleStatus"
+							value="<%=patients[0][4]%>"> --%>
+						<select class="form-select" aria-label="Status select"
+							name="status">
+							<c:if test="${appointment.status == 'done'}">
+								<option value="<c:out value="${appointment.status}"/>" selected>Done
+									✅</option>
+							</c:if>
+							<c:if test="${appointment.status == 'pending'}">
+								<option value="<c:out value="${appointment.status}"/>" selected>Pending
+									🕒</option>
+							</c:if>
+							<c:if test="${appointment.status == 'pending'}">
+								<option value="done">Done ✅</option>
+							</c:if>
+							<c:if test="${appointment.status == 'done'}">
+								<option value="pending">Pending 🕒</option>
+							</c:if>
+
+						</select>
+					</div>
+
+
+				</div>
 				<div class="mb-3">
 					<label for="exampleDescription" class="form-label">Description</label>
-					<textarea class="form-control" aria-label="With textarea" rows="7"></textarea>
+					<textarea class="form-control" name="description"
+						aria-label="With textarea" rows="7"><c:out
+							value='${appointment.description }' /></textarea>
+					<%-- <c:if test='${appointment.description != null}'>
+					<c:out value='${appointment.description }' />
+					</c:if> --%>
+
 				</div>
 				<div class="d-flex justify-content-between">
 					<button type="button" class="btn btn-outline-danger"
@@ -142,20 +202,24 @@
 			aria-labelledby="deleteModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
-					<div class="modal-header">
-						<h1 class="modal-title fs-5" id="deleteModalLabel">Are you
-							sure?</h1>
-						<button type="button" class="btn-close" data-bs-dismiss="modal"
-							aria-label="Close"></button>
-					</div>
-					<div class="modal-body">Do you really want to delete this
-						record? This process cannot be undo</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary"
-							data-bs-dismiss="modal">Cancel</button>
-						<button type="button" class="btn btn-danger">Yes, delete
-							appointment</button>
-					</div>
+					<form action="DeleteAppointment" method="post">
+						<div class="modal-header">
+							<h1 class="modal-title fs-5" id="deleteModalLabel">Are you
+								sure?</h1>
+								<input type="text" hidden name="appointmentId" value="<c:out value="${appointment.appointment_id}"/>"/>
+								<input type="text" hidden name="billId" value="<c:out value="${appointment.bill_id}"/>"/>
+							<button type="button" class="btn-close" data-bs-dismiss="modal"
+								aria-label="Close"></button>
+						</div>
+						<div class="modal-body">Do you really want to delete this
+							record? This process cannot be undo</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary"
+								data-bs-dismiss="modal">Cancel</button>
+							<button type="submit" class="btn btn-danger">Yes, delete
+								appointment</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
@@ -164,48 +228,58 @@
 			aria-labelledby="billModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
-					<div class="modal-header">
-						<h1 class="modal-title fs-5" id="billModalLabel">Bill
-							information</h1>
-						<button type="button" class="btn-close" data-bs-dismiss="modal"
-							aria-label="Close"></button>
-					</div>
-					<div class="modal-body">
-						<div>
-							<label for="exampleBill" class="form-label">Bill ID</label> <input
-								type="text" class="form-control" id="exampleBill" value="1"
-								disabled>
+					<form
+						action="<%=request.getContextPath()%>/update-bill?id=<c:out value='${appointment.appointment_id }'/>"
+						method="post">
+						<div class="modal-header">
+							<h1 class="modal-title fs-5" id="billModalLabel">Bill
+								information</h1>
+							<button type="button" class="btn-close" data-bs-dismiss="modal"
+								aria-label="Close"></button>
 						</div>
-						<div>
-							<label for="exampledate" class="form-label">Date</label> <input
-								type="date" class="form-control" id="exampledate"
-								value="<%=patients[0][1]%>">
-						</div>
+						<div class="modal-body">
+							<div>
+								<label for="exampleBill" class="form-label">Bill ID</label> <input
+									type="text" class="form-control" id="exampleBill"
+									value="<c:out value='${bill.bill_id }' />" disabled> <input
+									type="text" name="billId" class="form-control" id="exampleBill"
+									value="<c:out value='${bill.bill_id }' />" hidden>
+							</div>
+							<div>
+								<label for="exampledate" class="form-label">Date</label> <input
+									type="date" name="date" class="form-control" id="exampledate"
+									value="<c:out value='${bill.date }' />">
+							</div>
 
-						<div>
-							<label for="exampleStatus" class="form-label">Status</label> 
-							<select
-								class="form-select" aria-label="bill status">
-								<option selected hidden value="<%=patients[0][6]%>"><%=patients[0][6]%></option> 
-								<option value="unpaid">unpaid</option>
-								<option value="paid">paid</option>
-							</select> 
-						</div>
-						<div>
-							<label for="exampleAmount" class="form-label">Amount</label> <input
-								type="text" class="form-control" id="exampleAmount"
-								value="RM150.00">
-						</div>
+							<div>
+								<label for="exampleStatus" class="form-label">Status</label> <select
+									class="form-select" aria-label="bill status" name="status">
+									<option selected value="<c:out value='${bill.status }' />"><c:out
+											value='${bill.status eq "pending" ? "Pending 🕒" : "Done ✅"}' /></option>
+									<c:if test="${bill.status == 'pending'}">
+										<option value="done">Done ✅</option>
+									</c:if>
+									<c:if test="${bill.status == 'done'}">
+										<option value="pending">Pending 🕒</option>
+									</c:if>
+								</select>
+							</div>
+							<div>
+								<label for="exampleAmount" class="form-label">Amount</label> <input
+									type="text" name="amount" class="form-control"
+									id="exampleAmount" value="<c:out value='${bill.amount }'/>">
+							</div>
 
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary"
-							data-bs-dismiss="modal">Cancel</button>
-						<button type="button" class="btn btn-success">Save bill</button>
-					</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary"
+								data-bs-dismiss="modal">Cancel</button>
+							<button type="submit" class="btn btn-success">Save bill</button>
+						</div>
+					</form>
 				</div>
 			</div>
-		</div> 
+		</div>
 
 		<!-- Script -->
 		<script

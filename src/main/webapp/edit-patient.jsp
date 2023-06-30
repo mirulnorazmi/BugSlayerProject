@@ -32,7 +32,7 @@
 					class="d-flex flex-column justify-content-center align-items-right"
 					style="padding-left: 15px;">
 					<h5 style="margin: 0px;">
-						Doc. <c:out value='${doctor.name}' /></h5>
+						Doc. <%=session.getAttribute("doc_surname") %></h5>
 					<span style="color: #bfbfbf;"><%=session.getAttribute("email")%></span>
 				</div>
 			</div>

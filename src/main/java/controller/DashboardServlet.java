@@ -44,7 +44,12 @@ public class DashboardServlet extends HttpServlet {
 		doctor.setEmail((String) session.getAttribute("email"));
 		Doctor doc = doctorService.getInformation(doctor);
 //		request.setAttribute("doctor", doc);
-		session.setAttribute("doctor", doc);
+//		session.setAttribute("doctor", doc);
+		if(doc != null) {
+			session.setAttribute("doctor_id", doc.getId());
+			session.setAttribute("doc_surname", doc.getName());
+		} 
+		
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("dashboard.jsp");
 		dispatcher.forward(request, response);

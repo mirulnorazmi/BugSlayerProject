@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="java.sql.Date"%>
+<%@ page import="java.text.SimpleDateFormat"%>
+<%@ page import="java.time.LocalDate"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,7 +35,9 @@
 					class="d-flex flex-column justify-content-center align-items-right"
 					style="padding-left: 15px;">
 					<h5 style="margin: 0px;">
-						Doc. <c:out value='${doctor.name}' /></h5>
+						Doc.
+						<%=session.getAttribute("doc_surname")%>
+					</h5>
 					<span style="color: #bfbfbf;"><%=session.getAttribute("email")%></span>
 				</div>
 			</div>
@@ -51,9 +56,9 @@
 						style="margin-right: 20px;"> dashboard </span> Dashboard </a></li>
 				<li class="nav-item"><a
 					href="<%=request.getContextPath()%>/my-appointment"
-					class="nav-link active text-black d-flex justify-content-start"> <span
-						class="material-symbols-outlined" style="margin-right: 20px;">
-							event </span>My Appointments
+					class="nav-link active text-black d-flex justify-content-start">
+						<span class="material-symbols-outlined"
+						style="margin-right: 20px;"> event </span>My Appointments
 				</a></li>
 				<li class="nav-item"><a
 					href="<%=request.getContextPath()%>/my-patient"
@@ -83,38 +88,62 @@
 				class="d-flex flex-crow justify-content-center align-items-center"
 				style="height: 80vh !important;">
 				<img src="images/booking.png" alt="image" class="col-5" />
-				<form class="container-fluid formCreateApp col-7">
+				<form class="container-fluid formCreateApp col-7"
+					action="CreateAppointment" method="post">
 
-					<div class="mb-3 col-12">
+					<!-- <div class="mb-3 col-12">
 						<label for="exampleInputName" class="form-label">Name</label> <input
 							type="text" class="form-control" id="name"
 							aria-describedby="name">
-					</div>
+					</div> -->
+					<div class="alert alert-info" role="alert">Create patient
+						first before create the appointment</div>
 					<div class="mb-3 col-12">
-						<label for="exampleEmail" class="form-label">Email</label> <input
-							type="email" class="form-control" id="exampleEmail">
+						<label for="exampleEmail" class="form-label">Patient email</label>
+						<input name="email" type="email" class="form-control"
+							id="exampleEmail">
 					</div>
 					<div class="row col-12">
 						<div class="mb-3 col-6">
-							<label for="exampleIc" class="form-label">IC number <i>without
-									(-)</i>
-							</label> <input type="text" class="form-control" id="exampleIc">
+							<label for="exampleIc" class="form-label">Patient IC
+								number <i>without (-)</i>
+							</label> <input name="ic" type="text" class="form-control" id="exampleIc">
 						</div>
 						<div class="mb-3 col-6">
+							<%
+							Date currentDate = Date.valueOf(LocalDate.now());
+							SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+							String formattedDate = dateFormat.format(currentDate);
+							System.out.println("current date ; " + formattedDate);
+							%>
 							<label for="exampledate" class="form-label">Date</label> <input
-								type="date" class="form-control" id="exampledate"
-								value="2013-01-08">
+								name="date" type="date" value="<%=formattedDate%>"
+								class="form-control" id="exampledate">
 						</div>
 					</div>
 					<div class="row col-12">
 						<div class="mb-3 col-6">
 							<label for="exampletime" class="form-label">Time</label> <input
-								type="time" class="form-control" id="exampleTime" value="10:00">
+								name="time" type="time" class="form-control" id="exampleTime"
+								step="1" value="10:00:00">
 						</div>
 						<div class="mb-3 col-6">
 							<label for="exampleduration" class="form-label">Duration</label>
-							<input type="text" class="form-control" id="exampleduration"
-								value="1 hour">
+							<select class="form-select" aria-label="Duration select"
+								name="duration">
+
+
+								<option value="30 minute">30 minute</option>
+
+
+								<option value="1 hour">1 hour</option>
+
+								<option value="1 and half hour">1 and half hour</option>
+
+
+								<option value="2 hour">2 hour</option>
+
+							</select>
 						</div>
 					</div>
 					<div class="d-flex justify-content-between">

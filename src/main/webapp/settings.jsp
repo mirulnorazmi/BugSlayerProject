@@ -35,7 +35,7 @@
 					class="d-flex flex-column justify-content-center align-items-right"
 					style="padding-left: 15px;">
 					<h5 style="margin: 0px;">
-						Doc. <c:out value='${doctor.name}' /></h5>
+						Doc. <%=session.getAttribute("doc_surname") %></h5>
 					<span style="color: #bfbfbf;"><%=session.getAttribute("email")%></span>
 				</div>
 			</div>
@@ -99,11 +99,11 @@
 							<div class="row py-2">
 								<div class="col-md-6">
 									<label for="fullname">Full Name</label> <input type="text"
-										class="bg-light form-control" value="Amirul Fitri">
+										class="bg-light form-control" value="Amirul Fitri" readonly>
 								</div>
 								<div class="col-md-6 pt-md-0 pt-3">
 									<label for="lastname">Specialization</label> <input type="text"
-										class="bg-light form-control" value="Family Medicine">
+										class="bg-light form-control" value="Family Medicine" readonly >
 								</div>
 							</div>
 							<div class="row py-2">
@@ -114,18 +114,18 @@
 								</div>
 								<div class="col-md-6 pt-md-0 pt-3">
 									<label for="phone">Phone Number</label> <input type="tel"
-										class="bg-light form-control" value="012-9089878">
+										class="bg-light form-control" value="012-9089878" readonly>
 								</div>
 							</div>
 							<div class="row py-2">
 								<div class="col-md-6">
 									<label for="clinicname">Clinic Name</label> <input type="text"
-										class="bg-light form-control" value="Trust Care Center">
+										class="bg-light form-control" value="Trust Care Center" readonly>
 								</div>
 								<div class="col-md-6 pt-md-0 pt-3">
 									<label for="clinicaddress">Clinic Address</label> <input
 										type="text" class="bg-light form-control"
-										value="20, Jalan Jasa Merdeka 22, Melaka.">
+										value="20, Jalan Jasa Merdeka 22, Melaka." readonly>
 								</div>
 
 								<div class="py-3 pb-4 d-flex justify-content-center ">

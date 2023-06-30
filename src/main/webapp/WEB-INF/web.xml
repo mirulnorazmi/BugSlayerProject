@@ -99,4 +99,34 @@
     <servlet-name>CreateAppointment</servlet-name>
     <url-pattern>/CreateAppointment</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditAppointment</display-name>
+    <servlet-name>EditAppointment</servlet-name>
+    <servlet-class>controller.appointment.EditAppointment</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditAppointment</servlet-name>
+    <url-pattern>/EditAppointment</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateBill</display-name>
+    <servlet-name>UpdateBill</servlet-name>
+    <servlet-class>controller.appointment.UpdateBill</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateBill</servlet-name>
+    <url-pattern>/UpdateBill</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteAppointment</display-name>
+    <servlet-name>DeleteAppointment</servlet-name>
+    <servlet-class>controller.appointment.DeleteAppointment</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteAppointment</servlet-name>
+    <url-pattern>/DeleteAppointment</url-pattern>
+  </servlet-mapping>
 </web-app>
