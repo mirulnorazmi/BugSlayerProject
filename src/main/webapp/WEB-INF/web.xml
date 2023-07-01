@@ -129,4 +129,14 @@
     <servlet-name>DeleteAppointment</servlet-name>
     <url-pattern>/DeleteAppointment</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateSetting</display-name>
+    <servlet-name>UpdateSetting</servlet-name>
+    <servlet-class>controller.settings.UpdateSetting</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateSetting</servlet-name>
+    <url-pattern>/UpdateSetting</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -41,6 +41,23 @@ public class Doctor {
 //		Auto-generated
 	}
 	
+	public Doctor(int id, String name, String email, String specialization, String phone, int clinic_id) {
+		// TODO Auto-generated constructor stub
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.specialization = specialization;
+		this.phone = phone;
+		this.clinic_id = clinic_id;
+	}
+	public Doctor(int id, String name, String email, String specialization, String phone) {
+		// TODO Auto-generated constructor stub
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.specialization = specialization;
+		this.phone = phone;
+	}
 	public int getId() {
 		return id;
 	}

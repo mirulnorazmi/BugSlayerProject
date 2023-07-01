@@ -17,6 +17,8 @@
 	integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
 	crossorigin="anonymous">
 <link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
 <body style="height: 100vh;">
@@ -98,59 +100,109 @@
 				<div class="container">
 					<div class="form-floating">
 						<div class="py-2">
-							<form action="settings-update.jsp" method="post">
+							<jsp:useBean id="docInfo" class="bean.Doctor"></jsp:useBean>
+							<jsp:setProperty name="docInfo" property="*" />
+							<form action="UpdateSetting" method="post">
 								<div class="row py-2">
 									<input name="id" type="text" class="bg-light form-control"
-										value="<c:out value='${doc_profile.id}' />" hidden>
+										value="<jsp:getProperty name="docInfo" property="id" />"
+										hidden>
 									<div class="col-md-6">
 										<label for="fullname">Full Name</label> <input name="name"
-											type="text" class="bg-light form-control"
-											value="<c:out value='${doc_profile.name}' />" readonly>
+											type="text" class=" form-control"
+											value="<jsp:getProperty name="docInfo" property="name" />" required>
 									</div>
 									<div class="col-md-6 pt-md-0 pt-3">
 										<label for="lastname">Specialization</label> <input
-											name="specialization" type="text"
-											class="bg-light form-control"
-											value="<c:out value='${doc_profile.specialization}' />"
-											readonly>
+											name="specialization" type="text" class="form-control"
+											value="<jsp:getProperty name="docInfo" property="specialization" />" required>
 									</div>
 								</div>
 								<div class="row py-2">
 									<div class="col-md-6">
 										<label for="email">Email Address</label> <input name="email"
 											type="text" class="bg-light form-control"
-											value="<c:out value='${doc_profile.email}' />" readonly>
+											value="<jsp:getProperty name="docInfo" property="email" />" readonly>
 									</div>
 									<div class="col-md-6 pt-md-0 pt-3">
 										<label for="phone">Phone Number</label> <input name="phone"
-											type="tel" class="bg-light form-control"
-											value="<c:out value='${doc_profile.phone}' />" readonly>
+											type="tel" class=" form-control"
+											value="<jsp:getProperty name="docInfo" property="phone" />" required>
 									</div>
 								</div>
 								<div class="row py-2">
+									<%
+									bean.Clinic clinic = new bean.Clinic();
+									clinic.setName(request.getParameter("clinic_name"));
+									clinic.setId(Integer.parseInt(request.getParameter("clinic_id")));
+									%>
+									<jsp:useBean id="clinInfo" class="bean.Clinic"></jsp:useBean>
+									<jsp:setProperty name="clinInfo" property="*" />
 									<input name="clinic_id" type="text"
-										class="bg-light form-control"
-										value="<c:out value='${clinic_profile.id}' />" hidden>
+										class="bg-light form-control" value="<%=clinic.getId()%>"
+										hidden>
 									<div class="col-md-6">
+
 										<label for="clinicname">Clinic Name</label> <input
-											name="clinic_name" type="text" class="bg-light form-control"
-											value="<c:out value='${clinic_profile.name}' />" readonly>
+											name="clinic_name" type="text" class="form-control"
+											value="<%=clinic.getName()%>" required>
 									</div>
 									<div class="col-md-6 pt-md-0 pt-3">
 										<label for="clinicaddress">Clinic Address</label> <input
-											name="address" type="text" class="bg-light form-control"
-											value="<c:out value='${clinic_profile.address == null ? "update address here.." : clinic_profile.address}' />" readonly>
+											name="address" type="text" class="form-control"
+											value="<jsp:getProperty name="clinInfo" property="address" />" required>
+
+
 									</div>
 
-									<div class="py-3 pb-4 d-flex justify-content-center mt-5">
-										<button type="submit" class="btn btn-primary mr-3 ">Edit
-											profile</button>
+									<div class="py-3 pb-4 d-flex justify-content-between mt-5">
+										<button type="button" class="btn btn-outline-danger"
+											data-bs-toggle="modal" data-bs-target="#deleteModal">
+											<i class="bi bi-trash3"></i>
+										</button>
+										<div>
+											<a href="<%=request.getContextPath()%>/setting"
+												style="text-decoration: none;">
+												<button type="button" class="btn btn-outline-primary mr-3 ">cancel</button>
+											</a>
+											<button type="submit" class="btn btn-primary mr-3 ">Update
+												profile</button>
+										</div>
 									</div>
 								</div>
 							</form>
 						</div>
 					</div>
 				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Delete modal -->
+	<div class="modal fade" id="deleteModal" tabindex="-1"
+		aria-labelledby="deleteModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<form action="DeleteAccount" method="post">
+					<div class="modal-header">
+						<h1 class="modal-title fs-5" id="deleteModalLabel">Are you
+							sure?</h1>
+						<input type="text" hidden name="id"
+							value="<c:out value='${doc_profile.id}'/>" />
+						<button type="button" class="btn-close" data-bs-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						Do you really want to delete this account?<br> <b
+							style="font-size: 12px">Note: This process will not delete
+							clinic data and cannot be undo</b>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-bs-dismiss="modal">Cancel</button>
+						<button type="submit" class="btn btn-danger">Yes, delete
+							this account</button>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>

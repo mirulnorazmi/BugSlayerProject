@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import bean.Appointment;
 import bean.Clinic;
 import bean.Doctor;
 
@@ -21,6 +22,8 @@ public class ClinicService {
 	private String SELECT_ALL_CLINIC_NAME = "SELECT * FROM clinic WHERE name LIKE ?;";
 	private String INSERT_CLINIC_NAME = "INSERT INTO clinic (name) VALUES (?);";
 	private String SELECT_LAST_INSERT_ID = "SELECT last_insert_id() FROM clinic;";
+	private String SELECT_CLINIC_ID = "SELECT * FROM clinic WHERE clinic_id=?";
+	private String UPDATE_CLINIC_ID = "UPDATE clinic SET name=?, address=? WHERE clinic_id=?;";
 
 	public ClinicService() {
 //		insertClinicReturnId("name");
@@ -129,5 +132,47 @@ public class ClinicService {
 		}
 
 		return clinicId;
+	}
+
+	public Clinic getFullInformation(Clinic clinic) {
+		Clinic clin = null; // default init
+
+		try (Connection connection = getConnection();
+				PreparedStatement preparedStatement = connection.prepareStatement(SELECT_CLINIC_ID)) {
+			preparedStatement.setInt(1, clinic.getId());
+			System.out.println("clinic id : " + clinic.getId());
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			while (rs.next()) {
+				int clinic_id = rs.getInt("clinic_id");
+				String name = rs.getString("name");
+				String address = rs.getString("address");
+
+				clin = new Clinic(clinic_id, name, address);
+			}
+
+		} catch (SQLException e) {
+			printSQLException(e);
+		}
+		return clin;
+	}
+	
+	public boolean updateClinic(Clinic clinic) throws SQLException{
+		boolean status = false;
+		
+		try (Connection connection = getConnection();
+				PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_CLINIC_ID)) {
+			preparedStatement.setString(1, clinic.getName());
+			preparedStatement.setString(2, clinic.getAddress());
+			preparedStatement.setInt(3, clinic.getId());
+			preparedStatement.executeUpdate();
+			status = true;
+		} catch (SQLException e) {
+			printSQLException(e);
+			status = false;
+		}
+		
+		return status;
 	}
 }
