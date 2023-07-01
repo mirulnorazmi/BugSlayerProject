@@ -1,8 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Registration</title>
+<title>Doctorange | Registration</title>
 <link rel="stylesheet" href="css/main.css">
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -19,13 +22,13 @@
 
 		<nav class="navbar navbar-reg fixed-top ">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="#"> <img
-					src="images/logo/logo-doctorange.png" alt="Logo" width="80"
-					height="40" class="d-inline-block align-text-top"> Doctorange
+				<a class="navbar-brand" href="<%=request.getContextPath()%>"> <img
+					src="images/logo/logo-doctorange.png" alt="Logo" width="150"
+					height="50" height="40" class="d-inline-block align-text-top">
+				</a> <a href="<%=request.getContextPath()%>"
+					style="text-decoration: none;"><button
+						class="btn btn-outline-danger me-2" type="button">Sign in</button>
 				</a>
-
-				<button class="btn btn-outline-danger me-2" type="button">Sign
-					in</button>
 
 			</div>
 		</nav>
@@ -33,9 +36,10 @@
 	<!-- End navbar  -->
 
 	<!-- Start form -->
-	<div class="container" style="max-width: 1200px;">
+	<div class="container col-12">
 		<div style="padding: 0 60px;">
-			<div class="d-flex flex-row justify-content-center align-items-center g-0 card mt-5 container-fluid">
+			<div
+				class="d-flex flex-row justify-content-center align-items-center g-0 card mt-5 container-fluid">
 				<div class="col-md-4">
 					<img src="images/register-logo.jpg" class="img-fluid rounded-start"
 						width="1000px" alt="register-logo">
@@ -43,63 +47,71 @@
 				<div class="col-md-8">
 					<div class="card-body">
 						<h2>Registration</h2>
-						<form class="row g-3">
+						<br>
+						<form class="row g-3" action="register" method="post">
 							<div class="col-md-6">
 								<label for="inputName4" class="form-label">Full Name</label> <input
-									type="text" class="form-control" id="inputName4"
-									placeholder="Name" required>
+									name="name" type="text" class="form-control" id="inputName4"
+									required>
 							</div>
-							<div class="col-md-6">
-								<label for="inputUsername4" class="form-label">Username</label> <input
-									type="text" class="form-control" id="inputUsername4"
-									placeholder="Username" required>
-							</div>
+							<!-- <div class="col-md-6">
+								<label for="inputUsername4" class="form-label">Username</label>
+								<input name="username" type="text" class="form-control" id="inputUsername4"
+									required>
+							</div> -->
 							<div class="col-md-6">
 								<label for="inputEmail4" class="form-label">Email</label> <input
-									type="email" class="form-control" id="inputEmail4"
-									placeholder="abc@xyz.com" required>
+									name="email" type="email" class="form-control" id="inputEmail4"
+									placeholder="ex: abc@xyz.com" required>
 							</div>
 							<div class="col-md-6">
 								<label for="inputPhone4" class="form-label">Phone Number</label>
-								<input type="text" class="form-control" id="inputPhone4"
-									placeholder="012-3456789" required>
-							</div>
-							<div class="col-md-6">
-								<label for="inputPassword4" class="form-label">Password</label>
-								<input type="password" class="form-control" id="inputPassword4"
-									placeholder="password" required>
-							</div>
-							<div class="col-md-6">
-								<label for="inputCPassword4" class="form-label">Confirm
-									Password</label> <input type="password" class="form-control"
-									id="inputCPassword4" placeholder="Confirm-password" required>
-							</div>
-							<div class="col-md-6">
-								<label for="inputClinicName" class="form-label">Clinic
-									Name</label> <input type="text" class="form-control"
-									id="inputClinicName" placeholder="Clinic Name" required>
+								<input name="phone" type="text" class="form-control"
+									id="inputPhone4" placeholder="ex: 0123456789" required>
 							</div>
 							<div class="col-md-6">
 								<label for="inputSpecial4" class="form-label">Specialization</label>
-								<input type="text" class="form-control" id="inputSpecial4"
-									placeholder="Specialization" required>
+								<input name="specialization" type="text" class="form-control"
+									id="inputSpecial4" required>
 							</div>
-							<div class="col-12">
+							<div class="col-md-6">
+								<label for="inputPassword4" class="form-label">Password</label>
+								<input name="password" type="password" class="form-control"
+									id="inputPassword4" placeholder="minimum 8 character" required>
+							</div>
+							<div class="col-md-6">
+								<label for="inputCPassword4" class="form-label">Confirm
+									Password</label> <input name="cPassword" type="password"
+									class="form-control" id="inputCPassword4"
+									placeholder="must be the same as password" required>
+							</div>
+							<div class="col-md-6">
+								<label for="inputClinicName" class="form-label">Clinic
+									Name</label> <input name="clinicName" list="datalistOptions"
+									type="text" class="form-control" id="inputClinicName"
+									placeholder="new clinic or choose existing clinic" required>
+								<datalist id="datalistOptions">
+									<c:forEach var="clinic" items="${clinicList}">
+										<option value="<c:out value="${clinic.name}" />">
+									</c:forEach>
+								</datalist>
+							</div>
+							<!-- <div class="col-12">
 								<label for="inputAddress" class="form-label">Clinic
 									Address</label> <input type="text" class="form-control"
 									id="inputAddress" placeholder="1234 Main St">
-							</div>
+							</div> -->
 							<div class="col-12 text-center">
-								<button class="btn btn-outline-danger me-2" type="button">Register</button>
+								<button class="btn btn-outline-danger me-2" type="submit">Register</button>
 							</div>
 						</form>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="card-footer text-body-secondary text-center">
+		<!-- <div class="card-footer text-body-secondary text-center">
 			<h8>Doctorange @ copyright 2023</h8>
-		</div>
+		</div> -->
 	</div>
 	<!-- End form -->
 

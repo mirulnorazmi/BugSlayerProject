@@ -1,12 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Dashboard</title>
+<meta charset="ISO-8859-1">
+<title>Profile</title>
 <link rel="stylesheet" href="css/main.css">
+<link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	rel="stylesheet" />
+
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -46,7 +49,7 @@
 				style="padding-left: 40px;">
 				<li class="nav-item"><a
 					href="<%=request.getContextPath()%>/dashboard"
-					class="nav-link active text-black d-flex justify-content-start"
+					class="nav-link text-black d-flex justify-content-start"
 					aria-current="page"><span class="material-symbols-outlined"
 						style="margin-right: 20px;"> dashboard </span> Dashboard </a></li>
 				<li class="nav-item"><a
@@ -62,7 +65,7 @@
 							patient_list </span> My Patients</a></li>
 				<li class="nav-item"><a
 					href="<%=request.getContextPath()%>/setting"
-					class="nav-link text-black d-flex justify-content-start"> <span
+					class="nav-link active text-black d-flex justify-content-start"> <span
 						class="material-symbols-outlined" style="margin-right: 20px;">
 							settings </span>Settings
 				</a></li>
@@ -77,99 +80,59 @@
 		<div
 			class="dashboard-con d-flex flex-column justify-content-left align-items-center offset-3 col-9">
 			<div style="width: 100%;">
-				<h4 style="text-align: left;">Dashboard</h4>
-				<div class="banner-welcome mb-3 col-12">
-					<img src="images/logo/logo-doctorange.png" alt="logo" width="350px" />
-				</div>
-			</div>
+				<h4 style="text-align: left;">Profile</h4>
+				<div class="jumbotron jumbotron-fluid d-flex align-items-center">
 
-			<div class="d-flex flex-row mt-2" style="width: 100%;">
-				<div class="col-8">
-					<h4 style="text-align: left;">Status</h4>
-					<div class="d-flex flex-wrap">
-						<div class="card col-10 mb-2" style="margin-right: 10px;">
-							<div
-								class="card-body d-flex flex-row justify-content-between align-items-center">
-								<div>
-									<h5 class="card-title">7</h5>
-									<p class="card-text">Appointments due</p>
-								</div>
-								<div class="border-icon-status">
-									<span class="material-symbols-outlined"> today </span>
-								</div>
-							</div>
-						</div>
-						<div class="card col-5 mb-2" style="margin-right: 10px;">
-							<div
-								class="card-body d-flex flex-row justify-content-between align-items-center">
-								<div>
-									<h5 class="card-title">12</h5>
-									<p class="card-text">All doctor</p>
-								</div>
-								<div class="border-icon-status">
-									<span class="material-symbols-outlined"> stethoscope </span>
-								</div>
-							</div>
-						</div>
-						<div class="card col-5 mb-2" style="margin-right: 10px;">
-							<div
-								class="card-body d-flex flex-row justify-content-between align-items-center">
-								<div>
-									<h5 class="card-title">30</h5>
-									<p class="card-text">Registered patients</p>
-								</div>
-								<div class="border-icon-status">
-									<span class="material-symbols-outlined"> ward </span>
-								</div>
-							</div>
-						</div>
-						<div class="card col-5 mb-2" style="margin-right: 10px;">
-							<div
-								class="card-body d-flex flex-row justify-content-between align-items-center">
-								<div>
-									<h5 class="card-title">7</h5>
-									<p class="card-text">Clinic</p>
-								</div>
-								<div class="border-icon-status">
-									<span class="material-symbols-outlined"> home_health </span>
-								</div>
-							</div>
-						</div>
-						<div class="card col-5 mb-2" style="margin-right: 10px;">
-							<div
-								class="card-body d-flex flex-row justify-content-between align-items-center">
-								<div>
-									<h5 class="card-title">10</h5>
-									<p class="card-text">Generated bills</p>
-								</div>
-								<div class="border-icon-status">
-									<span class="material-symbols-outlined"> receipt </span>
-								</div>
-							</div>
-						</div>
-
+					<div class="form-floating">
+						<p class="h3" style="padding: 0 0 0 100px; color: #FF4E5B;">Trust
+							Care Center</p>
+						<p style="font-size: 12px; color: grey; padding: 0 100px;">Thank
+							you for your brilliant treatment.</p>
 					</div>
+
+
 				</div>
-				<div class="col-4">
-					<h4 style="text-align: left;">Shortcut</h4>
-					<div
-						class="d-flex flex-column justify-content-left align-items-top"
-						style="width: 100% !important;">
-						<a href="<%=request.getContextPath()%>/create-appointment"
-							style="text-decoration: none;" class="mb-3">
-							<button type="button" class="btn btn-outline-primary"
-								style="width: 100% !important;">Create appointment</button>
-						</a> <a href="/BugSlayerProject/create-patient.jsp"
-							style="text-decoration: none;" class="mb-3">
-							<button type="button" class="btn btn-outline-primary"
-								style="width: 100% !important;">Create patients</button>
-						</a>
-						<!-- <button type="button" class="btn btn-outline-primary mb-3">
-							Display doctors</button>
-						<button type="button" class="btn btn-outline-primary mb-3">
-							Display bills</button>
-						<button type="button" class="btn btn-outline-primary mb-3">
-							Display clinic</button> -->
+				<br>
+				<div class="container">
+					<div class="form-floating">
+						<div class="py-2">
+							<div class="row py-2">
+								<div class="col-md-6">
+									<label for="fullname">Full Name</label> <input type="text"
+										class="bg-light form-control" value="Amirul Fitri" readonly>
+								</div>
+								<div class="col-md-6 pt-md-0 pt-3">
+									<label for="lastname">Specialization</label> <input type="text"
+										class="bg-light form-control" value="Family Medicine" readonly >
+								</div>
+							</div>
+							<div class="row py-2">
+								<div class="col-md-6">
+									<label for="email">Email Address</label> <input type="text"
+										class="bg-light form-control"
+										value="mirul@doc.email.com" readonly>
+								</div>
+								<div class="col-md-6 pt-md-0 pt-3">
+									<label for="phone">Phone Number</label> <input type="tel"
+										class="bg-light form-control" value="012-9089878" readonly>
+								</div>
+							</div>
+							<div class="row py-2">
+								<div class="col-md-6">
+									<label for="clinicname">Clinic Name</label> <input type="text"
+										class="bg-light form-control" value="Trust Care Center" readonly>
+								</div>
+								<div class="col-md-6 pt-md-0 pt-3">
+									<label for="clinicaddress">Clinic Address</label> <input
+										type="text" class="bg-light form-control"
+										value="20, Jalan Jasa Merdeka 22, Melaka." readonly>
+								</div>
+
+								<div class="py-3 pb-4 d-flex justify-content-center ">
+									<button class="btn btn-primary mr-3 ">Save Changes</button>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -177,7 +140,9 @@
 	</div>
 
 
-	<!-- Script section -->
+
+
+
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"

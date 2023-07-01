@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" version="5.0">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="5.0">
   <servlet>
     <description></description>
     <display-name>loginServlet</display-name>
@@ -28,5 +28,105 @@
   <servlet-mapping>
     <servlet-name>dashboardHandler</servlet-name>
     <url-pattern>/dashboardHandler</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RegisterServlet</display-name>
+    <servlet-name>RegisterServlet</servlet-name>
+    <servlet-class>controller.RegisterServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegisterServlet</servlet-name>
+    <url-pattern>/RegisterServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LoginServlet</display-name>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>controller.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DashboardServlet</display-name>
+    <servlet-name>DashboardServlet</servlet-name>
+    <servlet-class>controller.DashboardServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DashboardServlet</servlet-name>
+    <url-pattern>/DashboardServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MyAppointment</display-name>
+    <servlet-name>MyAppointment</servlet-name>
+    <servlet-class>controller.appointment.MyAppointment</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MyAppointment</servlet-name>
+    <url-pattern>/MyAppointment</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MyPatient</display-name>
+    <servlet-name>MyPatient</servlet-name>
+    <servlet-class>controller.patient.MyPatient</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MyPatient</servlet-name>
+    <url-pattern>/MyPatient</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SettingServlet</display-name>
+    <servlet-name>SettingServlet</servlet-name>
+    <servlet-class>controller.settings.SettingServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SettingServlet</servlet-name>
+    <url-pattern>/SettingServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CreateAppointment</display-name>
+    <servlet-name>CreateAppointment</servlet-name>
+    <servlet-class>controller.appointment.CreateAppointment</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CreateAppointment</servlet-name>
+    <url-pattern>/CreateAppointment</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditAppointment</display-name>
+    <servlet-name>EditAppointment</servlet-name>
+    <servlet-class>controller.appointment.EditAppointment</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditAppointment</servlet-name>
+    <url-pattern>/EditAppointment</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateBill</display-name>
+    <servlet-name>UpdateBill</servlet-name>
+    <servlet-class>controller.appointment.UpdateBill</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateBill</servlet-name>
+    <url-pattern>/UpdateBill</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteAppointment</display-name>
+    <servlet-name>DeleteAppointment</servlet-name>
+    <servlet-class>controller.appointment.DeleteAppointment</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteAppointment</servlet-name>
+    <url-pattern>/DeleteAppointment</url-pattern>
   </servlet-mapping>
 </web-app>

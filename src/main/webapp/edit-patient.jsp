@@ -1,13 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="java.sql.Date"%>
-<%@ page import="java.text.SimpleDateFormat"%>
-<%@ page import="java.time.LocalDate"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Booking Appointment</title>
+<title>Edit Patient</title>
 <link rel="stylesheet" href="css/main.css">
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -19,7 +16,7 @@
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
-<body>
+<body style="height: 100vh;">
 	<div class="d-flex flex-row" style="height: 100%;">
 		<!-- Start sidebar  -->
 		<div id="sidebar"
@@ -35,9 +32,7 @@
 					class="d-flex flex-column justify-content-center align-items-right"
 					style="padding-left: 15px;">
 					<h5 style="margin: 0px;">
-						Doc.
-						<%=session.getAttribute("doc_surname")%>
-					</h5>
+						Doc. <%=session.getAttribute("doc_surname") %></h5>
 					<span style="color: #bfbfbf;"><%=session.getAttribute("email")%></span>
 				</div>
 			</div>
@@ -56,13 +51,13 @@
 						style="margin-right: 20px;"> dashboard </span> Dashboard </a></li>
 				<li class="nav-item"><a
 					href="<%=request.getContextPath()%>/my-appointment"
-					class="nav-link active text-black d-flex justify-content-start">
-						<span class="material-symbols-outlined"
-						style="margin-right: 20px;"> event </span>My Appointments
+					class="nav-link text-black d-flex justify-content-start"> <span
+						class="material-symbols-outlined" style="margin-right: 20px;">
+							event </span>My Appointments
 				</a></li>
 				<li class="nav-item"><a
 					href="<%=request.getContextPath()%>/my-patient"
-					class="nav-link text-black d-flex justify-content-start"><span
+					class="nav-link active text-black d-flex justify-content-start"><span
 						class="material-symbols-outlined" style="margin-right: 20px;">
 							patient_list </span> My Patients</a></li>
 				<li class="nav-item"><a
@@ -79,90 +74,75 @@
 			</div>
 		</div>
 		<!-- End sidebar  -->
+		<%
+		String[][] patients = {{"Anwar Dollah", "anwardollah@gmail.com", "019-9823721",
+		"A-0-12 Perumahan Awam, Bukit Jalil, 57000, Kuala Lumpur"}};
+		%>
 		<div
-			class="dashboard-con d-flex flex-column justify-content-center align-items-center offset-3 col-9">
+			class="dashboard-con d-flex flex-column justify-content-left align-items-center offset-3 col-9">
 			<div style="width: 100% !important;">
-				<h4 style="text-align: left;">Create Appointment</h4>
+				<h4 style="text-align: left;">Edit patient</h4>
 			</div>
-			<div
-				class="d-flex flex-crow justify-content-center align-items-center"
-				style="height: 80vh !important;">
-				<img src="images/booking.png" alt="image" class="col-5" />
-				<form class="container-fluid formCreateApp col-7"
-					action="CreateAppointment" method="post">
+			<form class="container-fluid formCreateApp">
+				<div class="col-12 mb-3">
+					<label for="exampleInputName" class="form-label">Name</label> <input
+						type="text" class="form-control" id="name" aria-describedby="name"
+						value="<%=patients[0][0]%>">
+				</div>
+				<div class="col-12 mb-3">
+					<label for="exampleInputEmail" class="form-label">Email</label> <input
+						type="email" class="form-control" id="email"
+						aria-describedby="email" value="<%=patients[0][1]%>">
+				</div>
+				<div class="col-12 mb-3">
+					<label for="exampleInputPhone" class="form-label">Phone
+						number</label> <input type="text" class="form-control" id="phone"
+						aria-describedby="phone" value="<%=patients[0][2]%>">
+				</div>
+				<div class="col-12 mb-3">
+					<label for="exampleInputAddress" class="form-label">Address</label>
+					<input type="text" class="form-control" id="address"
+						aria-describedby="address"
+						value="<%=patients[0][3]%>">
+				</div> 
+				<div class="d-flex justify-content-between mt-3">
+					<button type="button" class="btn btn-outline-danger"
+						data-bs-toggle="modal" data-bs-target="#deleteModal">
+						<i class="bi bi-trash3"></i>
+					</button>
+					<button type="submit" class="btn btn-primary">Update</button>
 
-					<!-- <div class="mb-3 col-12">
-						<label for="exampleInputName" class="form-label">Name</label> <input
-							type="text" class="form-control" id="name"
-							aria-describedby="name">
-					</div> -->
-					<div class="alert alert-info" role="alert">Create patient
-						first before create the appointment</div>
-					<div class="mb-3 col-12">
-						<label for="exampleEmail" class="form-label">Patient email</label>
-						<input name="email" type="email" class="form-control"
-							id="exampleEmail">
-					</div>
-					<div class="row col-12">
-						<div class="mb-3 col-6">
-							<label for="exampleIc" class="form-label">Patient IC
-								number <i>without (-)</i>
-							</label> <input name="ic" type="text" class="form-control" id="exampleIc">
-						</div>
-						<div class="mb-3 col-6">
-							<%
-							Date currentDate = Date.valueOf(LocalDate.now());
-							SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-							String formattedDate = dateFormat.format(currentDate);
-							System.out.println("current date ; " + formattedDate);
-							%>
-							<label for="exampledate" class="form-label">Date</label> <input
-								name="date" type="date" value="<%=formattedDate%>"
-								class="form-control" id="exampledate">
-						</div>
-					</div>
-					<div class="row col-12">
-						<div class="mb-3 col-6">
-							<label for="exampletime" class="form-label">Time</label> <input
-								name="time" type="time" class="form-control" id="exampleTime"
-								step="1" value="10:00:00">
-						</div>
-						<div class="mb-3 col-6">
-							<label for="exampleduration" class="form-label">Duration</label>
-							<select class="form-select" aria-label="Duration select"
-								name="duration">
-
-
-								<option value="30 minute">30 minute</option>
-
-
-								<option value="1 hour">1 hour</option>
-
-								<option value="1 and half hour">1 and half hour</option>
-
-
-								<option value="2 hour">2 hour</option>
-
-							</select>
-						</div>
-					</div>
-					<div class="d-flex justify-content-between">
-						<!-- <button type="button" class="btn btn-outline-danger"
-							data-bs-toggle="modal" data-bs-target="#deleteModal">
-							<i class="bi bi-trash3"></i>
-						</button> -->
-						<button type="reset" class="btn btn-outline-danger">Reset</button>
-						<button type="submit" class="btn btn-primary">Create</button>
-
-					</div>
-				</form>
+				</div>
+			</form>
+		</div>
+	</div>
+	<!-- Delete modal -->
+	<div class="modal fade" id="deleteModal" tabindex="-1"
+		aria-labelledby="deleteModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="deleteModalLabel">Are you
+						sure?</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</div>
+				<div class="modal-body">Do you really want to delete this
+					record? This process cannot be undo</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-bs-dismiss="modal">Cancel</button>
+					<button type="button" class="btn btn-danger">Yes, delete
+						patient</button>
+				</div>
 			</div>
 		</div>
 	</div>
 
 	<!-- Script -->
 	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/
+  bootstrap.bundle.min.js"
 		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
 		crossorigin="anonymous"></script>
 	<script

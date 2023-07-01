@@ -1,13 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="java.sql.Date"%>
-<%@ page import="java.text.SimpleDateFormat"%>
-<%@ page import="java.time.LocalDate"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Booking Appointment</title>
+<title>Create Patient</title>
 <link rel="stylesheet" href="css/main.css">
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -35,9 +32,7 @@
 					class="d-flex flex-column justify-content-center align-items-right"
 					style="padding-left: 15px;">
 					<h5 style="margin: 0px;">
-						Doc.
-						<%=session.getAttribute("doc_surname")%>
-					</h5>
+						Doc. <%=session.getAttribute("doc_surname") %></h5>
 					<span style="color: #bfbfbf;"><%=session.getAttribute("email")%></span>
 				</div>
 			</div>
@@ -56,13 +51,13 @@
 						style="margin-right: 20px;"> dashboard </span> Dashboard </a></li>
 				<li class="nav-item"><a
 					href="<%=request.getContextPath()%>/my-appointment"
-					class="nav-link active text-black d-flex justify-content-start">
-						<span class="material-symbols-outlined"
-						style="margin-right: 20px;"> event </span>My Appointments
+					class="nav-link text-black d-flex justify-content-start"> <span
+						class="material-symbols-outlined" style="margin-right: 20px;">
+							event </span>My Appointments
 				</a></li>
 				<li class="nav-item"><a
 					href="<%=request.getContextPath()%>/my-patient"
-					class="nav-link text-black d-flex justify-content-start"><span
+					class="nav-link active text-black d-flex justify-content-start"><span
 						class="material-symbols-outlined" style="margin-right: 20px;">
 							patient_list </span> My Patients</a></li>
 				<li class="nav-item"><a
@@ -82,69 +77,37 @@
 		<div
 			class="dashboard-con d-flex flex-column justify-content-center align-items-center offset-3 col-9">
 			<div style="width: 100% !important;">
-				<h4 style="text-align: left;">Create Appointment</h4>
+				<h4 style="text-align: left;">Create Patient</h4>
 			</div>
 			<div
 				class="d-flex flex-crow justify-content-center align-items-center"
-				style="height: 80vh !important;">
+				style="height: 80vh !important; width: 100% !important;">
 				<img src="images/booking.png" alt="image" class="col-5" />
-				<form class="container-fluid formCreateApp col-7"
-					action="CreateAppointment" method="post">
+				<form class="container-fluid formCreateApp col-7">
 
-					<!-- <div class="mb-3 col-12">
+					<div class="mb-3 col-12">
 						<label for="exampleInputName" class="form-label">Name</label> <input
 							type="text" class="form-control" id="name"
 							aria-describedby="name">
-					</div> -->
-					<div class="alert alert-info" role="alert">Create patient
-						first before create the appointment</div>
+					</div>
 					<div class="mb-3 col-12">
-						<label for="exampleEmail" class="form-label">Patient email</label>
-						<input name="email" type="email" class="form-control"
-							id="exampleEmail">
+						<label for="exampleEmail" class="form-label">Email</label> <input
+							type="email" class="form-control" id="exampleEmail">
 					</div>
-					<div class="row col-12">
-						<div class="mb-3 col-6">
-							<label for="exampleIc" class="form-label">Patient IC
-								number <i>without (-)</i>
-							</label> <input name="ic" type="text" class="form-control" id="exampleIc">
-						</div>
-						<div class="mb-3 col-6">
-							<%
-							Date currentDate = Date.valueOf(LocalDate.now());
-							SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-							String formattedDate = dateFormat.format(currentDate);
-							System.out.println("current date ; " + formattedDate);
-							%>
-							<label for="exampledate" class="form-label">Date</label> <input
-								name="date" type="date" value="<%=formattedDate%>"
-								class="form-control" id="exampledate">
-						</div>
+					<div class="mb-3 col-12">
+						<label for="exampleIc" class="form-label">IC number <i>without
+								(-)</i>
+						</label> <input type="text" class="form-control" id="exampleIc">
 					</div>
-					<div class="row col-12">
-						<div class="mb-3 col-6">
-							<label for="exampletime" class="form-label">Time</label> <input
-								name="time" type="time" class="form-control" id="exampleTime"
-								step="1" value="10:00:00">
-						</div>
-						<div class="mb-3 col-6">
-							<label for="exampleduration" class="form-label">Duration</label>
-							<select class="form-select" aria-label="Duration select"
-								name="duration">
+					<div class="mb-3 col-12">
 
+						<label for="examplePhone" class="form-label">Phone number</label>
+						<input type="text" class="form-control" id="examplePhone">
 
-								<option value="30 minute">30 minute</option>
-
-
-								<option value="1 hour">1 hour</option>
-
-								<option value="1 and half hour">1 and half hour</option>
-
-
-								<option value="2 hour">2 hour</option>
-
-							</select>
-						</div>
+					</div>
+					<div class="mb-3 col-12">
+						<label for="exampleAddress" class="form-label">Address</label> <input
+							type="text" class="form-control" id="exampleAddress">
 					</div>
 					<div class="d-flex justify-content-between">
 						<!-- <button type="button" class="btn btn-outline-danger"
