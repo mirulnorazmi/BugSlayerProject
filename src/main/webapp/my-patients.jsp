@@ -1,6 +1,7 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -119,6 +120,7 @@
 							<th scope="col"></th>
 							<th scope="col">Name</th>
 							<th scope="col">Email</th>
+							<th scope="col">Ic Number</th>
 							<th scope="col">Phone</th>
 							<th scope="col">Address</th>
 							<!-- 				<th></th> -->
@@ -126,31 +128,16 @@
 						</tr>
 					</thead>
 					<tbody>
-						<%
-						String[][] patients = {
-								{"Anwar Dollah", "anwardollah@gmail.com", "019-9823721",
-								"A-0-12 Perumahan Awam, Bukit Jalil, 57000, Kuala Lumpur"},
-								{"Aqilah Wahid", "qilalala@gmail.com", "014-4322211",
-								"B-12-01 Perumahan Awam, Bukit Jalil, 57000, Kuala Lumpur"},
-								{"Ghaffar Ali", "ghafferally@gmail.com", "012-1223322", "P2 Jalan Makmur, Ampang, 53100, Kuala Lumpur"},
-								{"Jason Laravel", "jasonlaravel@gmail.com", "017-9853556", "K9 Jalan 3, Ampang, 53300, Kuala Lumpur"},
-								{"Kamariah Jumaat", "cammyjumaat@gmail.com", "011-13221122", "No.3 Jalan Damai 2/9c, Cheras, 43200, Selangor"},
-								{"Kelvin Kumar", "kelvinkumar@ymail.com", "016-888765", "No. 9 Jalan Suasa 2/6b, Bangi, 43000, Selangor"},
-								{"Khalid Mydin", "KhalidMy@hotmail.com", "013-3321227", "L-0-9 Bandar Putra, Bangi, 43000, Selangor"},
-								{"Lee Ah Teh", "ahtehlee@gmail.com", "018-9081128", "No. 10 Jalan Suasa 2/5a, Cheras, 43200, Selangor"},
-								{"Munir Ahmad", "muniramat@yahoo.com", "012-2233355",
-								"Blok F-1-10 Pangsapuri Permai, Sungai Besi, 57000, Kuala Lumpur"}};
+						<c:forEach var="pat" items="${listPatient}">
+							<tr key="<c:out value="${pat.patient_id}" />" onclick="myFunction(<c:out value="${pat.patient_id}" />, '<%=request.getContextPath()%>/edit-patient')">
 
-						for (int i = 0; i < patients.length; i++) {
-							int j = 0;
-						%>
-						<tr key="<%=i + 1%>" onclick="myFunction(<%=i + 1%>, 'edit-patient.jsp')">
-							<th scope="row" style="color: #FF4E5B !important;"><%=i + 1%></th>
-							<td><%=patients[i][j]%></td>
-							<td><%=patients[i][j + 1]%></td>
-							<td><%=patients[i][j + 2]%></td>
-							<td><%=patients[i][j + 3]%></td>
-
+							<th scope="row" style="color: #FF4E5B !important;">
+							<c:out value="${pat.patient_id}" /></th>
+								<td><c:out value="${pat.name}" /></td>
+								<td><c:out value="${pat.email}" /></td>
+								<td><c:out value="${pat.ic}" /></td>
+								<td><c:out value="${pat.phone}" /></td>
+								<td><c:out value="${pat.address}" /></td>
 							<!-- <td><button type="button" class="btn">
 									<i class="bi bi-pencil-square"></i>
 								</button></td> -->
@@ -158,9 +145,7 @@
 									<i class="bi bi-trash3-fill"></i>
 								</button></td> -->
 						</tr>
-						<%
-						}
-						%>
+						</c:forEach>
 					</tbody>
 				</table>
 			</div>
@@ -173,7 +158,7 @@
 	<script>
 		function myFunction(x,y) {
 			console.log("Row index is: " + x); 
-			window.location.href= y;
+			window.location.href= y + "?id=" + x;
 			sessionStorage.setItem("key", x);
 			console.log("Session key : " + sessionStorage.getItem("key"));
 		}

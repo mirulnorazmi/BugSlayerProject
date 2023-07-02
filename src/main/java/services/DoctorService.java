@@ -1,15 +1,13 @@
 package services;
 
 import java.sql.Connection;
+
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-<<<<<<< HEAD
-=======
 import bean.Clinic;
->>>>>>> 4518a6bd67523d26a46b0786d8e6d655a8d3ade0
 import bean.Doctor;
 import helper.EncryptDecryptPass;
 

@@ -139,4 +139,34 @@
     <servlet-name>UpdateSetting</servlet-name>
     <url-pattern>/UpdateSetting</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CreatePatient</display-name>
+    <servlet-name>CreatePatient</servlet-name>
+    <servlet-class>controller.patient.CreatePatient</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CreatePatient</servlet-name>
+    <url-pattern>/CreatePatient</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditPatient</display-name>
+    <servlet-name>EditPatient</servlet-name>
+    <servlet-class>controller.patient.EditPatient</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditPatient</servlet-name>
+    <url-pattern>/EditPatient</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeletePatient</display-name>
+    <servlet-name>DeletePatient</servlet-name>
+    <servlet-class>controller.patient.DeletePatient</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeletePatient</servlet-name>
+    <url-pattern>/DeletePatient</url-pattern>
+  </servlet-mapping>
 </web-app>

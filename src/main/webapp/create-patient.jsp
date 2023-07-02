@@ -83,31 +83,31 @@
 				class="d-flex flex-crow justify-content-center align-items-center"
 				style="height: 80vh !important; width: 100% !important;">
 				<img src="images/booking.png" alt="image" class="col-5" />
-				<form class="container-fluid formCreateApp col-7">
+				<form class="container-fluid formCreateApp col-7" action="CreatePatient" method="post" >
 
 					<div class="mb-3 col-12">
 						<label for="exampleInputName" class="form-label">Name</label> <input
-							type="text" class="form-control" id="name"
+							type="text" class="form-control" name="name" id="name"
 							aria-describedby="name">
 					</div>
 					<div class="mb-3 col-12">
 						<label for="exampleEmail" class="form-label">Email</label> <input
-							type="email" class="form-control" id="exampleEmail">
+							type="email" class="form-control" name="email" id="exampleEmail">
 					</div>
 					<div class="mb-3 col-12">
 						<label for="exampleIc" class="form-label">IC number <i>without
 								(-)</i>
-						</label> <input type="text" class="form-control" id="exampleIc">
+						</label> <input type="text" class="form-control" name="ic" id="exampleIc">
 					</div>
 					<div class="mb-3 col-12">
 
 						<label for="examplePhone" class="form-label">Phone number</label>
-						<input type="text" class="form-control" id="examplePhone">
+						<input type="text" class="form-control" name="phone" id="examplePhone">
 
 					</div>
 					<div class="mb-3 col-12">
 						<label for="exampleAddress" class="form-label">Address</label> <input
-							type="text" class="form-control" id="exampleAddress">
+							type="text" class="form-control" name="address" id="exampleAddress">
 					</div>
 					<div class="d-flex justify-content-between">
 						<!-- <button type="button" class="btn btn-outline-danger"

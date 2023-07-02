@@ -28,6 +28,14 @@ public class Patient {
 		this.address = address;
 	}
 	
+	public Patient( String name, String email, String ic, String phone, String address) {
+		this.name = name;
+		this.email = email;
+		this.ic = ic;
+		this.phone = phone;
+		this.address = address;
+	}
+	
 	
 	public Patient() {
 		// TODO Auto-generated constructor stub
