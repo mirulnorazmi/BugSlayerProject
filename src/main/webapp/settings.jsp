@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,6 +39,7 @@
 					<h5 style="margin: 0px;">
 						Doc.
 						<%=session.getAttribute("doc_surname")%></h5>
+
 					<span style="color: #bfbfbf;"><%=session.getAttribute("email")%></span>
 				</div>
 			</div>
@@ -70,6 +72,7 @@
 					class="nav-link active text-black d-flex justify-content-start">
 						<span class="material-symbols-outlined"
 						style="margin-right: 20px;"> settings </span>Settings
+
 				</a></li>
 			</ul>
 			<hr style="margin-bottom: 0px !important;">
@@ -98,6 +101,7 @@
 				<div class="container">
 					<div class="form-floating">
 						<div class="py-2">
+
 							<form action="settings-update.jsp" method="post">
 								<div class="row py-2">
 									<input name="id" type="text" class="bg-light form-control"

@@ -43,6 +43,7 @@ public class SettingServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
 		Doctor doctor = new Doctor();
 		Clinic clinic = new Clinic();
 		HttpSession session = request.getSession();
@@ -65,7 +66,7 @@ public class SettingServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 //		doGet(request, response);
-
+		
 	}
 
 }

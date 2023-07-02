@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -83,27 +84,39 @@
 			<div style="width: 100% !important;">
 				<h4 style="text-align: left;">Edit patient</h4>
 			</div>
-			<form class="container-fluid formCreateApp">
+			<form class="container-fluid formCreateApp" action="EditPatient"
+				method="post">
+				<div class="col-12 mb-3">
+				<c:if test="${patient != null}">
+							<input type="hidden" name="patientId"
+								value="<c:out value='${patient.patient_id}' />" />
+				</c:if>
+				</div>
 				<div class="col-12 mb-3">
 					<label for="exampleInputName" class="form-label">Name</label> <input
-						type="text" class="form-control" id="name" aria-describedby="name"
-						value="<%=patients[0][0]%>">
+						type="text" class="form-control" id="name" name="name" aria-describedby="name"
+						value='${patient.name}' maxlength="50">
 				</div>
 				<div class="col-12 mb-3">
 					<label for="exampleInputEmail" class="form-label">Email</label> <input
-						type="email" class="form-control" id="email"
-						aria-describedby="email" value="<%=patients[0][1]%>">
+						type="email" class="form-control" id="email" name="email"
+						aria-describedby="email" value='${patient.email}'>
+				</div>
+				<div class="col-12 mb-3">
+					<label for="exampleInputIc" class="form-label">Ic Number
+						</label> <input type="text" class="form-control" name="ic" id="ic"
+						aria-describedby="ic" value='${patient.ic}' maxlength="12">
 				</div>
 				<div class="col-12 mb-3">
 					<label for="exampleInputPhone" class="form-label">Phone
-						number</label> <input type="text" class="form-control" id="phone"
-						aria-describedby="phone" value="<%=patients[0][2]%>">
+						number</label> <input type="text" class="form-control" name="phone" id="phone"
+						aria-describedby="phone" value='${patient.phone}' maxlength="11">
 				</div>
 				<div class="col-12 mb-3">
 					<label for="exampleInputAddress" class="form-label">Address</label>
-					<input type="text" class="form-control" id="address"
+					<input type="text" class="form-control" name="address" id="address"
 						aria-describedby="address"
-						value="<%=patients[0][3]%>">
+						value='${patient.address}'>
 				</div> 
 				<div class="d-flex justify-content-between mt-3">
 					<button type="button" class="btn btn-outline-danger"
@@ -118,26 +131,30 @@
 	</div>
 	<!-- Delete modal -->
 	<div class="modal fade" id="deleteModal" tabindex="-1"
-		aria-labelledby="deleteModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h1 class="modal-title fs-5" id="deleteModalLabel">Are you
-						sure?</h1>
-					<button type="button" class="btn-close" data-bs-dismiss="modal"
-						aria-label="Close"></button>
-				</div>
-				<div class="modal-body">Do you really want to delete this
-					record? This process cannot be undo</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-bs-dismiss="modal">Cancel</button>
-					<button type="button" class="btn btn-danger">Yes, delete
-						patient</button>
+			aria-labelledby="deleteModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<form action="DeletePatient" method="post">
+						<div class="modal-header">
+							<h1 class="modal-title fs-5" id="deleteModalLabel">Are you
+								sure?</h1>
+							<input type="text" hidden name="appointmentId"
+								value="<c:out value="${patient.patient_id}"/>" />
+							<button type="button" class="btn-close" data-bs-dismiss="modal"
+								aria-label="Close"></button>
+						</div>
+						<div class="modal-body">Do you really want to delete this
+							record? This process cannot be undo</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary"
+								data-bs-dismiss="modal">Cancel</button>
+							<button type="submit" class="btn btn-danger">Yes, delete
+								patient</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
-	</div>
 
 	<!-- Script -->
 	<script

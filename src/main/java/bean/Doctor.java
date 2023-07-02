@@ -58,6 +58,7 @@ public class Doctor {
 		this.specialization = specialization;
 		this.phone = phone;
 	}
+
 	public int getId() {
 		return id;
 	}

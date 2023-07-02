@@ -1,6 +1,7 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,7 +37,7 @@
 					class="d-flex flex-column justify-content-center align-items-right"
 					style="padding-left: 15px;">
 					<h5 style="margin: 0px;">
-						Doc.<%=session.getAttribute("doc_surname") %></h5>
+						Doc.<%=session.getAttribute("doc_surname")%></h5>
 					<span style="color: #bfbfbf;"><%=session.getAttribute("email")%></span>
 				</div>
 			</div>
@@ -82,30 +83,33 @@
 			class="dashboard-con d-flex flex-column justify-content-left align-items-center offset-3 col-9">
 			<div style="width: 100%;">
 				<h4 style="text-align: left;">My Patients</h4>
+				<form action="<%=request.getContextPath()%>/search-patient" method="post">
 				<div class="input-group mb-3 mt-4" style="height: 40px;">
-					<input type="text" class="form-control"
-						placeholder="Search Patient Name" aria-label="Patient Name"
-						aria-describedby="button-addon2">
-					<button class="btn btn-outline-danger me-2" type="button">Search</button>
+						<input type="text" class="form-control" name="search"
+							placeholder="Search Patient Name or Ic" aria-label="Patient Name"
+							aria-describedby="button-addon2">
+						<button class="btn btn-outline-danger me-2" type="submit">Search</button>
 				</div>
+				</form>
 				<div class="alert alert-info" role="alert">Click on the row to
 					update and delete the patient details</div>
 				<div class="d-flex flex-row justify-content-between m-2">
 					<section class=" d-flex flex-row align-items-center col-8">
 						<div class="form-check form-switch">
 							<input class="form-check-input" type="checkbox" role="switch"
-								id="flexSwitchCheckDefault" checked> <label
+								id="flexSwitchCheckDefault" checked disabled> <label
 								class="form-check-label" for="flexSwitchCheckDefault">All
 								patients</label>
 						</div>
-						<div class="form-check form-switch" style="margin-left: 10px;">
+						<!-- <div class="form-check form-switch" style="margin-left: 10px;">
 							<input class="form-check-input" type="checkbox" role="switch"
 								id="flexSwitchCheckDefault"> <label
 								class="form-check-label" for="flexSwitchCheckDefault">Sort
 								a-z</label>
-						</div>
+						</div> -->
 					</section>
-					<a href="/BugSlayerProject/create-patient.jsp" style="text-decoration: none;">
+					<a href="/BugSlayerProject/create-patient.jsp"
+						style="text-decoration: none;">
 						<button type="button" class="btn btn-outline-primary">
 							<i class="bi bi-plus-circle"></i> Create patient
 						</button>
@@ -119,6 +123,7 @@
 							<th scope="col"></th>
 							<th scope="col">Name</th>
 							<th scope="col">Email</th>
+							<th scope="col">Ic Number</th>
 							<th scope="col">Phone</th>
 							<th scope="col">Address</th>
 							<!-- 				<th></th> -->
@@ -126,41 +131,25 @@
 						</tr>
 					</thead>
 					<tbody>
-						<%
-						String[][] patients = {
-								{"Anwar Dollah", "anwardollah@gmail.com", "019-9823721",
-								"A-0-12 Perumahan Awam, Bukit Jalil, 57000, Kuala Lumpur"},
-								{"Aqilah Wahid", "qilalala@gmail.com", "014-4322211",
-								"B-12-01 Perumahan Awam, Bukit Jalil, 57000, Kuala Lumpur"},
-								{"Ghaffar Ali", "ghafferally@gmail.com", "012-1223322", "P2 Jalan Makmur, Ampang, 53100, Kuala Lumpur"},
-								{"Jason Laravel", "jasonlaravel@gmail.com", "017-9853556", "K9 Jalan 3, Ampang, 53300, Kuala Lumpur"},
-								{"Kamariah Jumaat", "cammyjumaat@gmail.com", "011-13221122", "No.3 Jalan Damai 2/9c, Cheras, 43200, Selangor"},
-								{"Kelvin Kumar", "kelvinkumar@ymail.com", "016-888765", "No. 9 Jalan Suasa 2/6b, Bangi, 43000, Selangor"},
-								{"Khalid Mydin", "KhalidMy@hotmail.com", "013-3321227", "L-0-9 Bandar Putra, Bangi, 43000, Selangor"},
-								{"Lee Ah Teh", "ahtehlee@gmail.com", "018-9081128", "No. 10 Jalan Suasa 2/5a, Cheras, 43200, Selangor"},
-								{"Munir Ahmad", "muniramat@yahoo.com", "012-2233355",
-								"Blok F-1-10 Pangsapuri Permai, Sungai Besi, 57000, Kuala Lumpur"}};
+						<c:forEach var="pat" items="${listPatient}">
+							<tr key="<c:out value="${pat.patient_id}" />"
+								onclick="myFunction(<c:out value="${pat.patient_id}" />, '<%=request.getContextPath()%>/edit-patient')">
 
-						for (int i = 0; i < patients.length; i++) {
-							int j = 0;
-						%>
-						<tr key="<%=i + 1%>" onclick="myFunction(<%=i + 1%>, 'edit-patient.jsp')">
-							<th scope="row" style="color: #FF4E5B !important;"><%=i + 1%></th>
-							<td><%=patients[i][j]%></td>
-							<td><%=patients[i][j + 1]%></td>
-							<td><%=patients[i][j + 2]%></td>
-							<td><%=patients[i][j + 3]%></td>
-
-							<!-- <td><button type="button" class="btn">
+								<th scope="row" style="color: #FF4E5B !important;"><c:out
+										value="${pat.patient_id}" /></th>
+								<td><c:out value="${pat.name}" /></td>
+								<td><c:out value="${pat.email}" /></td>
+								<td><c:out value="${pat.ic}" /></td>
+								<td><c:out value="${pat.phone}" /></td>
+								<td><c:out value="${pat.address}" /></td>
+								<!-- <td><button type="button" class="btn">
 									<i class="bi bi-pencil-square"></i>
 								</button></td> -->
-							<!-- <td><button type="button" class="btn" style="z-index: 20;">
+								<!-- <td><button type="button" class="btn" style="z-index: 20;">
 									<i class="bi bi-trash3-fill"></i>
 								</button></td> -->
-						</tr>
-						<%
-						}
-						%>
+							</tr>
+						</c:forEach>
 					</tbody>
 				</table>
 			</div>
@@ -173,7 +162,7 @@
 	<script>
 		function myFunction(x,y) {
 			console.log("Row index is: " + x); 
-			window.location.href= y;
+			window.location.href= y + "?id=" + x;
 			sessionStorage.setItem("key", x);
 			console.log("Session key : " + sessionStorage.getItem("key"));
 		}

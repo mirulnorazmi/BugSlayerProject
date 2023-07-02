@@ -1,6 +1,7 @@
 package services;
 
 import java.sql.Connection;
+
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,7 +22,6 @@ public class DoctorService {
 	private String jdbcURL = "jdbc:mysql://localhost/doctorange";
 	private String jdbcUsername = "root";
 	private String jdbcPassword = "";
-
 //	private String SELECT_ALL_DOCTOR = "SELECT * FROM doctor;";
 	private String SELECT_DOCTOR_EMAIL = "SELECT * FROM doctor WHERE email=?;";
 	private String INSERT_DOCTOR_SQL = "insert into doctor (name, email, password, specialization, phone, clinic_id) VALUES (?, ?, ?, ?, ?, ?)";
@@ -120,6 +120,7 @@ public class DoctorService {
 					name = name.substring(0, name.indexOf(" ")).toLowerCase();
 					System.out.println("name short ; " + name);
 				}
+
 				doc = new Doctor(doctor_id, name, email, clinic_id);
 			}
 
