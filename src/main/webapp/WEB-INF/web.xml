@@ -169,4 +169,14 @@
     <servlet-name>DeletePatient</servlet-name>
     <url-pattern>/DeletePatient</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchPatient</display-name>
+    <servlet-name>SearchPatient</servlet-name>
+    <servlet-class>controller.patient.SearchPatient</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchPatient</servlet-name>
+    <url-pattern>/SearchPatient</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -29,6 +29,7 @@ public class PatientService {
 	private String SELECT_PATIENTS_ID = "SELECT * FROM patient WHERE patient_id=?;";
 	private String UPDATE_PATIENT_ID = "UPDATE patient set name=?, email=?, ic=?, phone=?, address=? WHERE patient_id=?;";
 	private String DELETE_PATIENT_SQL = "DELETE from patient where patient_id = ?;";
+	private String SELECT_PATIENT_BY_IC_NAME = "SELECT * FROM patient WHERE name=? OR ic=?;";
 
 	public PatientService() {
 //		insertClinicReturnId("name");
@@ -119,6 +120,38 @@ public class PatientService {
 		} catch (SQLException e) {
 			printSQLException(e);
 		}
+		return patient;
+	}
+	
+	//gpt
+	public  List<Patient> getPatientByIcName(String inputForm) {
+		List<Patient> patient = new ArrayList<>();
+		
+		try (Connection connection = getConnection();
+				PreparedStatement preparedStatement = connection.prepareStatement(SELECT_PATIENT_BY_IC_NAME)) {
+			preparedStatement.setString(1, inputForm);
+			preparedStatement.setString(2, inputForm);
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			while (rs.next()) {
+
+				int patient_id = rs.getInt("patient_id");;
+				String name = rs.getString("name");
+				String email = rs.getString("email");
+				String ic = rs.getString("ic");
+				String phone = rs.getString("phone");
+				String address = rs.getString("address");
+				
+				System.out.println("patient_id : " + patient_id);
+				
+				patient.add(new Patient(patient_id, name, email, ic, phone, address));
+			}
+
+		} catch (SQLException e) {
+			printSQLException(e);
+		}
+		
 		return patient;
 	}
 	

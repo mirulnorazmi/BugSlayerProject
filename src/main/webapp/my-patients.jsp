@@ -37,7 +37,7 @@
 					class="d-flex flex-column justify-content-center align-items-right"
 					style="padding-left: 15px;">
 					<h5 style="margin: 0px;">
-						Doc.<%=session.getAttribute("doc_surname") %></h5>
+						Doc.<%=session.getAttribute("doc_surname")%></h5>
 					<span style="color: #bfbfbf;"><%=session.getAttribute("email")%></span>
 				</div>
 			</div>
@@ -83,12 +83,14 @@
 			class="dashboard-con d-flex flex-column justify-content-left align-items-center offset-3 col-9">
 			<div style="width: 100%;">
 				<h4 style="text-align: left;">My Patients</h4>
+				<form action="<%=request.getContextPath()%>/search-patient" method="post">
 				<div class="input-group mb-3 mt-4" style="height: 40px;">
-					<input type="text" class="form-control"
-						placeholder="Search Patient Name" aria-label="Patient Name"
-						aria-describedby="button-addon2">
-					<button class="btn btn-outline-danger me-2" type="button">Search</button>
+						<input type="text" class="form-control" name="search"
+							placeholder="Search Patient Name or Ic" aria-label="Patient Name"
+							aria-describedby="button-addon2">
+						<button class="btn btn-outline-danger me-2" type="submit">Search</button>
 				</div>
+				</form>
 				<div class="alert alert-info" role="alert">Click on the row to
 					update and delete the patient details</div>
 				<div class="d-flex flex-row justify-content-between m-2">
@@ -106,7 +108,8 @@
 								a-z</label>
 						</div>
 					</section>
-					<a href="/BugSlayerProject/create-patient.jsp" style="text-decoration: none;">
+					<a href="/BugSlayerProject/create-patient.jsp"
+						style="text-decoration: none;">
 						<button type="button" class="btn btn-outline-primary">
 							<i class="bi bi-plus-circle"></i> Create patient
 						</button>
@@ -129,22 +132,23 @@
 					</thead>
 					<tbody>
 						<c:forEach var="pat" items="${listPatient}">
-							<tr key="<c:out value="${pat.patient_id}" />" onclick="myFunction(<c:out value="${pat.patient_id}" />, '<%=request.getContextPath()%>/edit-patient')">
+							<tr key="<c:out value="${pat.patient_id}" />"
+								onclick="myFunction(<c:out value="${pat.patient_id}" />, '<%=request.getContextPath()%>/edit-patient')">
 
-							<th scope="row" style="color: #FF4E5B !important;">
-							<c:out value="${pat.patient_id}" /></th>
+								<th scope="row" style="color: #FF4E5B !important;"><c:out
+										value="${pat.patient_id}" /></th>
 								<td><c:out value="${pat.name}" /></td>
 								<td><c:out value="${pat.email}" /></td>
 								<td><c:out value="${pat.ic}" /></td>
 								<td><c:out value="${pat.phone}" /></td>
 								<td><c:out value="${pat.address}" /></td>
-							<!-- <td><button type="button" class="btn">
+								<!-- <td><button type="button" class="btn">
 									<i class="bi bi-pencil-square"></i>
 								</button></td> -->
-							<!-- <td><button type="button" class="btn" style="z-index: 20;">
+								<!-- <td><button type="button" class="btn" style="z-index: 20;">
 									<i class="bi bi-trash3-fill"></i>
 								</button></td> -->
-						</tr>
+							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
