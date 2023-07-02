@@ -93,7 +93,6 @@ public class CreateAppointment extends HttpServlet {
 			int patient_id = patientService.getPatientIdbyEmailIc(email, ic);
 			int doctor_id = (int) session.getAttribute("doctor_id");
 			
-			
 			if (patient_id != 0) {
 				
 				int bill_id = billService.insertDefaultBill(date);
