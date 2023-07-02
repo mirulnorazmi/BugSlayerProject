@@ -2,7 +2,7 @@ package bean;
 
 public class Clinic {
 	private int id;
-	private String name;
+	private String clinic_name;
 	private String address;
 	
 	/**
@@ -11,7 +11,7 @@ public class Clinic {
 	 * @param address
 	 */
 	public Clinic(String name, String address) {
-		this.name = name;
+		this.clinic_name = name;
 		this.address = address;
 	}
 	
@@ -23,7 +23,7 @@ public class Clinic {
 	 */
 	public Clinic(int id, String name, String address) {
 		this.id = id;
-		this.name = name;
+		this.clinic_name = name;
 		this.address = address;
 	}
 	
@@ -43,10 +43,10 @@ public class Clinic {
 		this.id = id;
 	}
 	public String getName() {
-		return name;
+		return clinic_name;
 	}
 	public void setName(String name) {
-		this.name = name;
+		this.clinic_name = name;
 	}
 	public String getAddress() {
 		return address;

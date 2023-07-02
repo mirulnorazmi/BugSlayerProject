@@ -6,6 +6,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+<<<<<<< HEAD
+=======
+import bean.Clinic;
+>>>>>>> 4518a6bd67523d26a46b0786d8e6d655a8d3ade0
 import bean.Doctor;
 import helper.EncryptDecryptPass;
 
@@ -20,11 +24,11 @@ public class DoctorService {
 	private String jdbcURL = "jdbc:mysql://localhost/doctorange";
 	private String jdbcUsername = "root";
 	private String jdbcPassword = "";
-
-	private String SELECT_ALL_DOCTOR = "SELECT * FROM doctor;";
+//	private String SELECT_ALL_DOCTOR = "SELECT * FROM doctor;";
 	private String SELECT_DOCTOR_EMAIL = "SELECT * FROM doctor WHERE email=?;";
 	private String INSERT_DOCTOR_SQL = "insert into doctor (name, email, password, specialization, phone, clinic_id) VALUES (?, ?, ?, ?, ?, ?)";
-
+	private String UPDATE_DOCTOR_ID = "UPDATE doctor SET name=?, email=?, specialization=?, phone=? WHERE doctor_id=?";
+	
 	public Connection getConnection() {
 		Connection connection = null;
 		try {
@@ -114,10 +118,11 @@ public class DoctorService {
 				String name = rs.getString("name");
 				String email = rs.getString("email");
 				int clinic_id = rs.getInt("clinic_id");
-				if(name.contains(" ")){
-					name= name.substring(0, name.indexOf(" ")).toLowerCase() ; 
-			        System.out.println("name short ; " + name);
-			     }
+				if (name.contains(" ")) {
+					name = name.substring(0, name.indexOf(" ")).toLowerCase();
+					System.out.println("name short ; " + name);
+				}
+
 				doc = new Doctor(doctor_id, name, email, clinic_id);
 			}
 
@@ -125,6 +130,53 @@ public class DoctorService {
 			printSQLException(e);
 		}
 		return doc;
+	}
+
+	public Doctor getFullInformation(Doctor doctor) {
+		Doctor doc = null; // default init
+
+		try (Connection connection = getConnection();
+				PreparedStatement preparedStatement = connection.prepareStatement(SELECT_DOCTOR_EMAIL)) {
+			preparedStatement.setString(1, doctor.getEmail());
+			System.out.println("email : " + doctor.getEmail());
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			while (rs.next()) {
+				int doctor_id = rs.getInt("doctor_id");
+				String name = rs.getString("name");
+				String email = rs.getString("email");
+				String specialization = rs.getString("specialization");
+				String phone = rs.getString("phone");
+				int clinic_id = rs.getInt("clinic_id");
+
+				doc = new Doctor(doctor_id, name, email, specialization, phone, clinic_id);
+			}
+
+		} catch (SQLException e) {
+			printSQLException(e);
+		}
+		return doc;
+	}
+	
+	public boolean updateDoctor(Doctor doctor) throws SQLException{
+		boolean status = false;
+		
+		try (Connection connection = getConnection();
+				PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_DOCTOR_ID)) {
+			preparedStatement.setString(1, doctor.getName());
+			preparedStatement.setString(2, doctor.getEmail());
+			preparedStatement.setString(3, doctor.getSpecialization());
+			preparedStatement.setString(4, doctor.getPhone());
+			preparedStatement.setInt(5, doctor.getId());
+			preparedStatement.executeUpdate();
+			status = true;
+		} catch (SQLException e) {
+			printSQLException(e);
+			status = false;
+		}
+		
+		return status;
 	}
 
 	public boolean loginDoctor(Doctor doctor) throws SQLException {
